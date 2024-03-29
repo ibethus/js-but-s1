@@ -1,5 +1,8 @@
 # Résumé du cours - JavaScript Vanilla
 
+[![Deploy](https://github.com/ibethus/js-but-s1/blob/main/.github/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/ibethus/js-but-s1/blob/main/.github/workflows/deploy.yml)
+
+
 ## Description
 Ce dépôt reprend toutes les notions abordées lors d'une introduction au JavaScript Vanilla moderne. 
 
