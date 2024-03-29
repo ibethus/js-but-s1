@@ -66,3 +66,21 @@ code {
     white-space: nowrap;
     box-shadow: 0px 0px 5px 1px #6d6d6d;
 }
+
+.admonitionblock.warning {
+    background-color: #ff000043;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 3px #6d6d6d56;
+}
+
+.admonitionblock.important {
+    background-color: #ffae0088;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 3px #6d6d6d56;
+}
+
+.admonitionblock.tip {
+    background-color: #04ff0043;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 3px #6d6d6d56;
+}
