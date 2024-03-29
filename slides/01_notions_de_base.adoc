@@ -1,0 +1,13 @@
+== Notions de base
+
+=== Types
+
+=== Primitifs
+[%step]
+* `string` : à ne pas confondre avec `String`
+* `boolean`
+* `number`
+* `function`
+* `symbol`
+* `undefined`
+* `null`
