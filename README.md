@@ -1,10 +1,10 @@
-# Résumé du cours - JavaScript Vanilla
+# Résumé du cours - JavaScript vanilla
 
 [![Deploy](https://github.com/ibethus/js-but-s1/actions/workflows/deploy.yml/badge.svg)](https://github.com/ibethus/js-but-s1/actions/workflows/deploy.yml)
 
 
 ## Description
-Ce dépôt reprend toutes les notions abordées lors d'une introduction au JavaScript Vanilla moderne. 
+Ce dépôt présente les notions de base du JavaScript vanilla moderne, tirées du cours suivant : http://js-but1.codenestedu.fr/
 
 ## Générer les slides en local
 

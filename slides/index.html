@@ -413,8 +413,43 @@ ul.byline {
 ul.byline li + li {
   margin-top: 0.25em;
 }
-</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css"><link rel="stylesheet" href="css/custom.css"></head><body><div class="reveal"><div class="slides"><section id="_javascript_vanilla"><h2>JavaScript Vanilla</h2><div class="slide-content"><div class="imageblock"><img src="images/javascript.png" alt="javascript" width="50%"></div></div></section>
-<section><section id="_notions_de_base"><h2>Notions de base</h2></section><section id="_types"><h2>Types</h2></section><section id="_primitifs"><h2>Primitifs</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p><code>string</code> : à ne pas confondre avec <code>String</code></p></li><li class="fragment"><p><code>boolean</code></p></li><li class="fragment"><p><code>number</code></p></li><li class="fragment"><p><code>function</code></p></li><li class="fragment"><p><code>symbol</code></p></li><li class="fragment"><p><code>undefined</code></p></li><li class="fragment"><p><code>null</code></p></li></ul></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css"><link rel="stylesheet" href="css/custom.css"></head><body><div class="reveal"><div class="slides"><section id="_javascript_vanilla"><h2>JavaScript Vanilla</h2><div class="slide-content"><div class="imageblock"><img src="images/javascript.png" alt="javascript" width="50%"></div>
+<div class="paragraph"><p>Tiré de <a href="http://js-but1.codenestedu.fr/" class="bare">http://js-but1.codenestedu.fr/</a></p></div></div></section>
+<section><section id="_notions_de_base"><h2>Notions de base</h2></section><section id="_types" data-auto-animate><h2>Types</h2><div class="slide-content"><div class="ulist"><div class="title">Primitifs</div><ul><li class="fragment"><p><code>string</code> : à ne pas confondre avec <code>String</code></p></li><li class="fragment"><p><code>boolean</code></p></li><li class="fragment"><p><code>number</code></p></li><li class="fragment"><p><code>function</code></p></li><li class="fragment"><p><code>symbol</code></p></li><li class="fragment"><p><code>undefined</code></p></li><li class="fragment"><p><code>null</code></p></li></ul></div></div></section><section id="_types_2" data-auto-animate><h2>Types</h2><div class="slide-content"><div class="ulist"><div class="title">Objets</div><ul><li class="fragment"><p><code>Date</code></p></li><li class="fragment"><p><code>Array</code></p></li><li class="fragment"><p><code>String</code></p></li></ul></div>
+<div class="openblock fragment"><div class="content"><div class="ulist"><ul><li><p>vos propres objets :</p></li></ul></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let personne = {
+    nom: 'John',
+    age: 30
+}</code></pre></div></div></div></div></div></section><section id="_var_let_const"><h2>var / let / const</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p><code>var</code> : portée fonctionnelle</p></li><li class="fragment"><p><code>let</code> : portée limitée au bloc</p></li><li class="fragment"><p><code>const</code> : portée limitée au bloc</p></li></ul></div>
+<div class="openblock fragment"><div class="content"><div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Une <code>const</code> est initialisée à la déclaration et ne peut pas être réaffectée</td></tr></table></div></div></div></div></section><section id="_tableaux"><h2>Tableaux</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1|2,3,4|5,6" data-lang="javascript">let person = ["John", "Doe", 25];
+console.log(typeof person);  /* Affichera "object" */
+console.log(Array.isArray(person));  /* Affichera true */
+console.log(person[0]); /* Affichera 'John' */
+person.push("Tom");
+console.log(person[3]); /* Affichera 'Tom' */</code></pre></div></div></div></section><section id="_décomposition" data-auto-animate><h2>Décomposition</h2><div class="slide-content"><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Objectif : Extraire les données d&#8217;un tableau ou d&#8217;un objet</td></tr></table></div></div></section><section id="_décomposition_2" data-auto-animate><h2>Décomposition</h2><div class="slide-content"><div class="listingblock"><div class="title">Sur un tableau</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let person = ["John", "Doe", 25];
+
+// Destructuration du tableau person
+const [firstName, lastName, age] = person;
+
+// Utilisation des variables extraites
+console.log(firstName);  // Output: 'John'
+console.log(lastName);   // Output: 'Doe'
+console.log(age);        // Output: 25</code></pre></div></div></div></section><section id="_décomposition_3" data-auto-animate><h2>Décomposition</h2><div class="slide-content"><div class="listingblock"><div class="title">Sur un objet</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 25
+};
+
+const { age, firstName } = person;
+
+console.log(firstName);   // Output: 'John'
+console.log(age);         // Output: 25</code></pre></div></div></div></section><section id="_décomposition_4" data-auto-animate><h2>Décomposition</h2><div class="slide-content"><div class="listingblock"><div class="title">Avec le "rest operator"</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">   let fruits = ["Apple", "Banana", "Orange", "Grapes"];
+
+   // Utilisation de l'opérateur de repos dans la destructuration
+   const [firstFruit, ...restOfFruits] = fruits;
+
+   console.log(firstFruit);      // Output: 'Apple'
+   console.log(restOfFruits);    // Output: ['Banana', 'Orange', 'Grapes']</code></pre></div></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;

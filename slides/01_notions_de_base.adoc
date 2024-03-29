@@ -1,11 +1,12 @@
 == JavaScript Vanilla
 image::images/javascript.png[width=50%]
+Tiré de http://js-but1.codenestedu.fr/
 
 == Notions de base
 
+[%auto-animate]
 === Types
-
-=== Primitifs
+.Primitifs
 [%step]
 * `string` : à ne pas confondre avec `String`
 * `boolean`
@@ -14,3 +15,101 @@ image::images/javascript.png[width=50%]
 * `symbol`
 * `undefined`
 * `null`
+
+[%auto-animate]
+=== Types
+.Objets
+[%step]
+* `Date`
+* `Array`
+* `String`
+
+[%step]
+--
+* vos propres objets :
+
+[source, javascript]
+----
+let personne = {
+    nom: 'John',
+    age: 30
+}
+----
+--
+
+=== var / let / const
+[%step]
+* `var` : portée fonctionnelle
+* `let` : portée limitée au bloc
+* `const` : portée limitée au bloc
+
+[%step]
+--
+WARNING: Une `const` est initialisée à la déclaration et ne peut pas être réaffectée
+--
+
+=== Tableaux
+
+[source, javascript, highlight=1|2..4|5..6]
+----
+let person = ["John", "Doe", 25];
+console.log(typeof person);  /* Affichera "object" */
+console.log(Array.isArray(person));  /* Affichera true */
+console.log(person[0]); /* Affichera 'John' */
+person.push("Tom");
+console.log(person[3]); /* Affichera 'Tom' */
+----
+
+[%auto-animate]
+=== Décomposition
+TIP: Objectif : Extraire les données d'un tableau ou d'un objet
+
+[%auto-animate]
+=== Décomposition
+
+.Sur un tableau
+[source, javascript]
+----
+let person = ["John", "Doe", 25];
+
+// Destructuration du tableau person
+const [firstName, lastName, age] = person;
+
+// Utilisation des variables extraites
+console.log(firstName);  // Output: 'John'
+console.log(lastName);   // Output: 'Doe'
+console.log(age);        // Output: 25
+----
+
+[%auto-animate]
+=== Décomposition
+.Sur un objet
+[source, javascript]
+----
+let person = {
+  firstName: "John", 
+  lastName: "Doe",
+  age: 25
+};
+
+const { age, firstName } = person;
+
+console.log(firstName);   // Output: 'John'
+console.log(age);         // Output: 25
+----
+
+[%auto-animate]
+=== Décomposition
+
+.Avec le "rest operator"
+[source, javascript]
+----
+   let fruits = ["Apple", "Banana", "Orange", "Grapes"];
+
+   // Utilisation de l'opérateur de repos dans la destructuration
+   const [firstFruit, ...restOfFruits] = fruits;
+
+   console.log(firstFruit);      // Output: 'Apple'
+   console.log(restOfFruits);    // Output: ['Banana', 'Orange', 'Grapes']
+----
+
