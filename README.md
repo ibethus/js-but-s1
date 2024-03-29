@@ -1,6 +1,6 @@
 # Résumé du cours - JavaScript Vanilla
 
-[![Deploy](https://github.com/ibethus/js-but-s1/blob/main/.github/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/ibethus/js-but-s1/blob/main/.github/workflows/deploy.yml)
+[![Deploy](https://github.com/ibethus/js-but-s1/actions/workflows/deploy.yml/badge.svg)](https://github.com/ibethus/js-but-s1/actions/workflows/deploy.yml)
 
 
 ## Description
