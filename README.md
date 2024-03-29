@@ -14,7 +14,8 @@ Ce dépôt reprend toutes les notions abordées lors d'une introduction au JavaS
 2. Lancer les commandes suivantes :
 ```
 docker container run --rm -ti -u $(id -u):$(id -g) -v $(pwd):/documents asciidoctor/docker-asciidoctor:1.65 
-asciidoctor-revealjs slides/index.adoc
+
+asciidoctor-revealjs index.adoc
 ```
 
 3. Ouvrir le fichier index.html généré.

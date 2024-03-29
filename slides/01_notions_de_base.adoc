@@ -1,3 +1,6 @@
+== JavaScript Vanilla
+image::images/javascript.png[width=50%]
+
 == Notions de base
 
 === Types
