@@ -416,7 +416,7 @@ ul.byline li + li {
 </style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css"><link rel="stylesheet" href="css/custom.css"></head><body><div class="reveal"><div class="slides"><section id="_javascript_vanilla"><h2>JavaScript Vanilla</h2><div class="slide-content"><div class="imageblock"><img src="images/javascript.png" alt="javascript" width="50%"></div>
 <div class="paragraph"><p>Tiré de <a href="http://js-but1.codenestedu.fr/" class="bare">http://js-but1.codenestedu.fr/</a></p></div></div></section>
 <section><section id="_notions_de_base"><h2>Notions de base</h2></section><section id="_types" data-auto-animate><h2>Types</h2><div class="slide-content"><div class="ulist"><div class="title">Primitifs</div><ul><li class="fragment"><p><code>string</code> : à ne pas confondre avec <code>String</code></p></li><li class="fragment"><p><code>boolean</code></p></li><li class="fragment"><p><code>number</code></p></li><li class="fragment"><p><code>function</code></p></li><li class="fragment"><p><code>symbol</code></p></li><li class="fragment"><p><code>undefined</code></p></li><li class="fragment"><p><code>null</code></p></li></ul></div></div></section><section id="_types_2" data-auto-animate><h2>Types</h2><div class="slide-content"><div class="ulist"><div class="title">Objets</div><ul><li class="fragment"><p><code>Date</code></p></li><li class="fragment"><p><code>Array</code></p></li><li class="fragment"><p><code>String</code></p></li></ul></div>
-<div class="openblock fragment"><div class="content"><div class="ulist"><ul><li><p>vos propres objets :</p></li></ul></div>
+<div class="openblock fragment"><div class="content"><div class="ulist"><ul><li><p>Objets personalisés :</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let personne = {
     nom: 'John',
     age: 30
@@ -428,7 +428,7 @@ console.log(person[0]); /* Affichera 'John' */
 person.push("Tom");
 console.log(person[3]); /* Affichera 'Tom' */</code></pre></div></div></div></section><section id="_décomposition" data-auto-animate><h2>Décomposition</h2><div class="slide-content"><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Objectif : Extraire les données d&#8217;un tableau ou d&#8217;un objet</td></tr></table></div></div></section><section id="_décomposition_2" data-auto-animate><h2>Décomposition</h2><div class="slide-content"><div class="listingblock"><div class="title">Sur un tableau</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let person = ["John", "Doe", 25];
 
-// Destructuration du tableau person
+// Décomposition du tableau person
 const [firstName, lastName, age] = person;
 
 // Utilisation des variables extraites
@@ -445,11 +445,178 @@ const { age, firstName } = person;
 console.log(firstName);   // Output: 'John'
 console.log(age);         // Output: 25</code></pre></div></div></div></section><section id="_décomposition_4" data-auto-animate><h2>Décomposition</h2><div class="slide-content"><div class="listingblock"><div class="title">Avec le "rest operator"</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">   let fruits = ["Apple", "Banana", "Orange", "Grapes"];
 
-   // Utilisation de l'opérateur de repos dans la destructuration
+   // Utilisation de l'opérateur de reste dans la décomposition
    const [firstFruit, ...restOfFruits] = fruits;
 
    console.log(firstFruit);      // Output: 'Apple'
-   console.log(restOfFruits);    // Output: ['Banana', 'Orange', 'Grapes']</code></pre></div></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+   console.log(restOfFruits);    // Output: ['Banana', 'Orange', 'Grapes']</code></pre></div></div></div></section></section>
+<section><section id="_les_boucles"><h2>Les boucles</h2></section><section id="_for"><h2>For</h2><div class="slide-content"><div class="paragraph"><p>Identique au Java</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const person = ["John", "Doe", 25];
+   for (let i = 0; i &lt; person.length; i++) {
+    console.log(person[i]);
+}</code></pre></div></div></div></section><section id="_while"><h2>While</h2><div class="slide-content"><div class="paragraph"><p>Identique au Java</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let randomNumber;
+let foundOdd = false;
+
+while (!foundOdd) {
+  randomNumber = Math.floor(Math.random() * 100) + 1;
+  console.log(`Nombre aléatoire : ${randomNumber}`);
+  if (randomNumber % 2 !== 0) {
+    console.log('Nombre impair trouvé');
+    foundOdd = true;
+  }
+}</code></pre></div></div></div></section><section id="_for_of"><h2>For&#8230;&#8203; of</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const person = ["John", "Doe", 25];
+for (let x of person) {
+    console.log(x);
+}</code></pre></div></div>
+<div class="admonitionblock warning fragment"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Contrairement au <code>for</code> classique, on ne récupère pas l&#8217;index ici</td></tr></table></div></div></section><section id="_fonction_callback"><h2>Fonction callback</h2><div class="slide-content"><div class="paragraph"><p>La fonction passée en paramètre implémente le comportement attendu à chaque tour de boucle.</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const persons = ["John", "Doe", 25];
+persons.forEach(function(person, index, tab) {
+  console.log(`Index ${index}, value ${person}, array ${tab}`)
+});</code></pre></div></div></div></section><section id="_for_in"><h2>For&#8230;&#8203; in</h2><div class="slide-content"><div class="paragraph"><p>Cette boucle permet d&#8217;itérer sur les attributs d&#8217;un objet (mais fonctionne également sur les tableaux)</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let oldCar = {
+ make: 'Toyota',
+ model: 'Tercel',
+ year: '1996'
+};
+
+for (let key in oldCar) {
+ console.log(`${key} --&gt; ${oldCar[key]}`);
+}</code></pre></div></div></div></section></section>
+<section><section id="_les_fonctions"><h2>Les fonctions</h2></section><section id="_hors_dune_classe" data-auto-animate><h2>Hors d&#8217;une classe</h2><div class="slide-content"><div class="openblock"><div class="content"><div class="paragraph"><p>Fonction classique (1 seule ligne de code)</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">function add(a, b) {
+    return a + b;
+}</code></pre></div></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p>Fonction fléchée équivalente</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const add = (a, b) =&gt; a + b;</code></pre></div></div></div></div></div></section><section id="_hors_dune_classe_2" data-auto-animate><h2>Hors d&#8217;une classe</h2><div class="slide-content"><div class="openblock"><div class="content"><div class="paragraph"><p>Fonction classique (Plusieurs lignes)</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">function min(a,b){
+if ( a &lt; b )
+  return a;
+else
+  return b;
+}</code></pre></div></div></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p>Fonction fléchée équivalente</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const min = (a,b)=&gt;{
+if ( a &lt; b )
+    return a;
+  else
+    return b;
+}</code></pre></div></div></div></div></div></section><section id="_dans_une_classe" data-auto-animate><h2>Dans une classe</h2><div class="slide-content"><div class="paragraph"><p>Fonction fléchée sans paramètre</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">class Truc {
+  parler = () =&gt;{
+    console.log("Je suis une méthode, et je parle");
+  }
+}
+
+const truc = new Truc();
+truc.parler();</code></pre></div></div></div></section><section id="_dans_une_classe_2" data-auto-animate><h2>Dans une classe</h2><div class="slide-content"><div class="paragraph"><p>Fonction fléchée avec paramètre</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">class Truc {
+  crier = (mot) =&gt;{
+    console.log(`Je suis une méthode et je crie : ${mot}`);
+  }
+}
+
+const truc = new Truc();
+truc.crier("Bonjour !");</code></pre></div></div></div></section><section id="_qui_est_this" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Les fonctions fléchées n&#8217;ont pas leur propre contexte <code>this</code>, elles héritent du contexte dans lequel elles sont définies.</td></tr></table></div></div></section><section id="_qui_est_this_2" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript"> class Counter {
+  constructor() {
+    this.count = 0;
+    this.startCounting();
+  }
+  startCounting() {
+    // Le contexte à this de la classe counter est perdu.
+    setInterval(function() {
+      this.increment(); // &lt;- Cette ligne causera une erreur
+    }, 1000);
+  }
+  increment() {
+    this.count++;
+    console.log("Count:", this.count);
+  }
+}
+
+const counter = new Counter();</code></pre></div></div></div></section><section id="_qui_est_this_3" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">class Counter {
+  constructor() {
+    this.count = 0;
+    this.startCounting();
+  }
+  startCounting() {
+    // Utilisation de setInterval avec une fonction fléchée
+    setInterval(() =&gt; {
+      this.increment(); // &lt;- Fonctionne correctement
+    }, 1000);
+  }
+  increment() {
+    this.count++;
+    console.log("Count:", this.count);
+  }
+}
+
+const counter = new Counter();</code></pre></div></div></div></section><section id="_les_fonctions_callback"><h2>Les fonctions callback</h2><div class="slide-content"><div class="paragraph"><p><em>cf</em> fonctionnement de la boucle <code>forEach</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const someFunction = (callback) =&gt; {
+  console.log("Dans la fonction someFunction");
+  callback(); // Appel de la fonction callback
+};
+const callback = () =&gt; {
+    console.log("Dans la fonction callback");
+};
+someFunction(callback); // Passer la fonction callback comme "paramètre" à someFunction</code></pre></div></div></div></section></section>
+<section><section id="_les_collections"><h2>Les collections</h2></section><section id="_array" data-auto-animate><h2>Array</h2><div class="slide-content"><div class="paragraph"><p><code>push()</code> et <code>pop()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let fruits = ['pomme', 'orange'];
+fruits.push('banane'); // Ajoute 'banane' à la fin
+const dernierFruit = fruits.pop(); // Retourne et retire 'banane'</code></pre></div></div></div></section><section id="_array_2" data-auto-animate><h2>Array</h2><div class="slide-content"><div class="paragraph"><p><code>unshift()</code> et <code>shift()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let fruits = ['orange', 'banane'];
+fruits.unshift('pomme'); // Ajoute 'pomme' au début
+let premierFruit = fruits.shift(); // Retourne et retire 'pomme'</code></pre></div></div></div></section><section id="_array_3" data-auto-animate><h2>Array</h2><div class="slide-content"><div class="paragraph"><p><code>concat()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let fruits = ['pomme', 'orange'];
+let legumes = ['carotte', 'brocoli'];
+let aliments = fruits.concat(legumes); // ['pomme', 'orange', 'carotte', 'brocoli']
+//ou avec la décomposition
+aliments = [...fruits, ...legumes];</code></pre></div></div></div></section><section id="_array_4" data-auto-animate><h2>Array</h2><div class="slide-content"><div class="paragraph"><p><code>indexOf()</code> et <code>lastIndexOf()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let fruits = ['pomme', 'orange', 'banane', 'fraise', 'banane'];
+let indexBanane = fruits.indexOf('banane'); // 2
+let lastIndexBanane = fruits.lastIndexOf('banane'); // 4</code></pre></div></div></div></section><section id="_array_5" data-auto-animate><h2>Array</h2><div class="slide-content"><div class="paragraph"><p>Remplir un tableau :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">Array(5).fill(Math.random(10));</code></pre></div></div>
+<div class="openblock fragment"><div class="content"><div class="paragraph"><p>Remplir une matrice :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">Array.from({ length: 5 }, function () {
+    return Array(5).fill(Math.random(10));
+});</code></pre></div></div></div></div></div></section><section id="_set" data-auto-animate><h2>Set</h2><div class="slide-content"><div class="paragraph"><p>Principales caractéristiques :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Liste de <strong>valeurs uniques</strong></p></li><li class="fragment"><p>Pas d'<strong>indexation</strong></p></li><li class="fragment"><p><strong>Itérable</strong></p></li><li class="fragment"><p>Taille <strong>dynamique</strong></p></li></ul></div></div></section><section id="_set_2" data-auto-animate><h2>Set</h2><div class="slide-content"><div class="paragraph"><p><code>add()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let mySet = new Set();
+mySet.add(1); // 1</code></pre></div></div></div></section><section id="_set_3" data-auto-animate><h2>Set</h2><div class="slide-content"><div class="paragraph"><p><code>delete()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let mySet = new Set();
+mySet.add(1); // Set()
+mySet.delete(1); // true</code></pre></div></div></div></section><section id="_set_4" data-auto-animate><h2>Set</h2><div class="slide-content"><div class="paragraph"><p><code>has()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let mySet = new Set();
+mySet.add(1); // Set()
+mySet.has(1); // true
+mySet.delete(1); // true
+mySet.has(1); // false</code></pre></div></div></div></section><section id="_set_5" data-auto-animate><h2>Set</h2><div class="slide-content"><div class="paragraph"><p><code>size()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let mySet = new Set();
+mySet.add(1); // Set()
+mySet.size(); // 1</code></pre></div></div></div></section><section id="_set_6" data-auto-animate><h2>Set</h2><div class="slide-content"><div class="paragraph"><p>Itération :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let mySet = new Set();
+mySet.add(1); // Set()
+mySet.add(2); // Set()
+for (let item of mySet) console.log(item); // 1, 2</code></pre></div></div></div></section><section id="_map" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p>Principales caractéristiques :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Liste de <strong>clés uniques</strong>, quel que soit leur type</p></li><li class="fragment"><p>Pas d'<strong>indexation</strong></p></li><li class="fragment"><p><strong>Itérable</strong></p></li><li class="fragment"><p>Taille <strong>dynamique</strong></p></li></ul></div></div></section><section id="_map_2" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p><code>set()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let sayings = new Map();
+sayings.set("dog", "woof"); // Map()
+sayings.set("dog", "waf"); // Modifie la valeur de la clé "dog"</code></pre></div></div></div></section><section id="_map_3" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p><code>delete()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let sayings = new Map();
+sayings.set("dog", "woof"); // Map()
+sayings.delete("dog"); // true</code></pre></div></div></div></section><section id="_map_4" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p><code>has()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let sayings = new Map();
+sayings.set("dog", "woof"); // Map()
+sayings.has("dog"); // true</code></pre></div></div></div></section><section id="_map_5" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p><code>size()</code> :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let sayings = new Map();
+sayings.set("dog", "woof"); // Map()
+sayings.size(); // 1</code></pre></div></div></div></section><section id="_map_6" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p>Itération :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">for (let [key, value] of sayings) {
+  console.log(key + " goes " + value);
+}</code></pre></div></div></div></section><section id="_comment_choisir" data-auto-animate><h2>Comment choisir ?</h2><div class="slide-content"><div class="paragraph"><p>Array si on veut :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Liste ordonnée</p></li><li class="fragment"><p>Accéder aux objets <em>via</em> leur indice</p></li><li class="fragment"><p>Méthodes spécifiques (push, pop, slice, etc.)</p></li><li class="fragment"><p>Eléments dupliqués</p></li></ul></div></div></section><section id="_comment_choisir_2" data-auto-animate><h2>Comment choisir ?</h2><div class="slide-content"><div class="paragraph"><p>Set si on veut :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Valeurs uniques</p></li><li class="fragment"><p>Pas de clefs/valeurs associées</p></li><li class="fragment"><p>Recherche fréquente d&#8217;une valeur dans la liste</p></li></ul></div></div></section><section id="_comment_choisir_3" data-auto-animate><h2>Comment choisir ?</h2><div class="slide-content"><div class="paragraph"><p>Map si on veut :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Clefs/valeurs</p></li><li class="fragment"><p>Opérations fréquentes de recherche/modification d&#8217;une valeur <em>via</em> sa clef</p></li></ul></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
