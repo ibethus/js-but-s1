@@ -26,7 +26,7 @@ Tiré de http://js-but1.codenestedu.fr/
 
 [%step]
 --
-* vos propres objets :
+* Objets personalisés :
 
 [source, javascript]
 ----
@@ -72,7 +72,7 @@ TIP: Objectif : Extraire les données d'un tableau ou d'un objet
 ----
 let person = ["John", "Doe", 25];
 
-// Destructuration du tableau person
+// Décomposition du tableau person
 const [firstName, lastName, age] = person;
 
 // Utilisation des variables extraites
@@ -106,7 +106,7 @@ console.log(age);         // Output: 25
 ----
    let fruits = ["Apple", "Banana", "Orange", "Grapes"];
 
-   // Utilisation de l'opérateur de repos dans la destructuration
+   // Utilisation de l'opérateur de reste dans la décomposition
    const [firstFruit, ...restOfFruits] = fruits;
 
    console.log(firstFruit);      // Output: 'Apple'

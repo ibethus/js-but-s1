@@ -1,0 +1,216 @@
+== Les collections
+
+[%auto-animate]
+=== Array
+`push()` et `pop()` :
+[source, javascript]
+----
+let fruits = ['pomme', 'orange'];
+fruits.push('banane'); // Ajoute 'banane' à la fin
+const dernierFruit = fruits.pop(); // Retourne et retire 'banane'
+----
+
+[%auto-animate]
+=== Array
+`unshift()` et `shift()` :
+[source, javascript]
+----
+let fruits = ['orange', 'banane'];
+fruits.unshift('pomme'); // Ajoute 'pomme' au début
+let premierFruit = fruits.shift(); // Retourne et retire 'pomme'
+----
+
+[%auto-animate]
+=== Array
+`concat()` :
+[source, javascript]
+----
+let fruits = ['pomme', 'orange'];
+let legumes = ['carotte', 'brocoli'];
+let aliments = fruits.concat(legumes); // ['pomme', 'orange', 'carotte', 'brocoli']
+//ou avec la décomposition
+aliments = [...fruits, ...legumes];
+----
+
+[%auto-animate]
+=== Array
+`indexOf()` et `lastIndexOf()` :
+[source, javascript]
+----
+let fruits = ['pomme', 'orange', 'banane', 'fraise', 'banane'];
+let indexBanane = fruits.indexOf('banane'); // 2
+let lastIndexBanane = fruits.lastIndexOf('banane'); // 4
+----
+
+[%auto-animate]
+=== Array
+Remplir un tableau :
+[source, javascript]
+----
+Array(5).fill(Math.random(10));
+----
+
+[%step]
+--
+Remplir une matrice :
+[source, javascript]
+----
+Array.from({ length: 5 }, function () {
+    return Array(5).fill(Math.random(10));
+});
+----
+--
+
+[%auto-animate]
+=== Set
+Principales caractéristiques :
+
+[%step]
+* Liste de *valeurs uniques*
+* Pas d'*indexation*
+* *Itérable*
+* Taille *dynamique*
+
+[%auto-animate]
+=== Set
+`add()` :
+[source, javascript]
+----
+let mySet = new Set();
+mySet.add(1); // 1
+----
+
+[%auto-animate]
+=== Set
+`delete()` :
+[source, javascript]
+----
+let mySet = new Set();
+mySet.add(1); // Set()
+mySet.delete(1); // true
+----
+
+[%auto-animate]
+=== Set
+`has()` :
+[source, javascript]
+----
+let mySet = new Set();
+mySet.add(1); // Set()
+mySet.has(1); // true
+mySet.delete(1); // true
+mySet.has(1); // false
+----
+
+[%auto-animate]
+=== Set
+`size()` :
+[source, javascript]
+----
+let mySet = new Set();
+mySet.add(1); // Set()
+mySet.size(); // 1
+----
+
+[%auto-animate]
+=== Set
+Itération :
+[source, javascript]
+----
+let mySet = new Set();
+mySet.add(1); // Set()
+mySet.add(2); // Set()
+for (let item of mySet) console.log(item); // 1, 2
+----
+
+[%auto-animate]
+=== Map
+Principales caractéristiques :
+
+[%step]
+* Liste de *clés uniques*, quel que soit leur type
+* Pas d'*indexation*
+* *Itérable*
+* Taille *dynamique*
+
+[%auto-animate]
+=== Map
+`set()` :
+
+[source, javascript]
+----
+let sayings = new Map();
+sayings.set("dog", "woof"); // Map()
+sayings.set("dog", "waf"); // Modifie la valeur de la clé "dog"
+----
+
+[%auto-animate]
+=== Map
+`delete()` :
+
+[source, javascript]
+----
+let sayings = new Map();
+sayings.set("dog", "woof"); // Map()
+sayings.delete("dog"); // true
+----
+
+[%auto-animate]
+=== Map
+`has()` :
+
+[source, javascript]
+----
+let sayings = new Map();
+sayings.set("dog", "woof"); // Map()
+sayings.has("dog"); // true
+----
+
+[%auto-animate]
+=== Map
+`size()` :
+
+[source, javascript]
+----
+let sayings = new Map();
+sayings.set("dog", "woof"); // Map()
+sayings.size(); // 1
+----
+
+[%auto-animate]
+=== Map
+Itération :
+
+[source, javascript]
+----
+for (let [key, value] of sayings) {
+  console.log(key + " goes " + value);
+}
+----
+
+[%auto-animate]
+=== Comment choisir ?
+Array si on veut :
+
+[%step]
+* Liste ordonnée
+* Accéder aux objets _via_ leur indice
+* Méthodes spécifiques (push, pop, slice, etc.)
+* Eléments dupliqués
+
+[%auto-animate]
+=== Comment choisir ?
+Set si on veut :
+
+[%step]
+* Valeurs uniques
+* Pas de clefs/valeurs associées
+* Recherche fréquente d'une valeur dans la liste
+
+[%auto-animate]
+=== Comment choisir ?
+Map si on veut :
+
+[%step]
+* Clefs/valeurs 
+* Opérations fréquentes de recherche/modification d'une valeur _via_ sa clef

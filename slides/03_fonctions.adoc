@@ -1,0 +1,150 @@
+== Les fonctions
+
+[%auto-animate]
+=== Hors d'une classe
+
+--
+Fonction classique (1 seule ligne de code)
+[source, javascript]
+----
+function add(a, b) {
+    return a + b;
+}
+----
+--
+
+[%step]
+--
+Fonction fléchée équivalente
+[source, javascript]
+----
+const add = (a, b) => a + b;
+----
+--
+
+[%auto-animate]
+=== Hors d'une classe
+--
+Fonction classique (Plusieurs lignes)
+[source, javascript]
+----
+function min(a,b){
+if ( a < b ) 
+  return a;
+else 
+  return b;
+}
+----
+--
+
+[%step]
+--
+Fonction fléchée équivalente
+[source, javascript]
+----
+const min = (a,b)=>{
+if ( a < b ) 
+    return a;
+  else 
+    return b;
+}
+----
+--
+
+[%auto-animate]
+=== Dans une classe
+
+Fonction fléchée sans paramètre
+[source, javascript]
+----
+class Truc {
+  parler = () =>{
+    console.log("Je suis une méthode, et je parle");
+  }
+}
+
+const truc = new Truc();
+truc.parler();
+----
+
+[%auto-animate]
+=== Dans une classe
+Fonction fléchée avec paramètre
+
+[source, javascript]
+----
+class Truc {
+  crier = (mot) =>{
+    console.log(`Je suis une méthode et je crie : ${mot}`);
+  }
+}
+
+const truc = new Truc();
+truc.crier("Bonjour !");
+----
+
+[%auto-animate]
+=== Qui est `this` ?
+TIP: Les fonctions fléchées n'ont pas leur propre contexte `this`, elles héritent du contexte dans lequel elles sont définies.
+
+[%auto-animate]
+=== Qui est `this` ? 
+[source, javascript]
+----
+ class Counter {
+  constructor() {
+    this.count = 0;
+    this.startCounting();
+  }
+  startCounting() {
+    // Le contexte à this de la classe counter est perdu.
+    setInterval(function() {
+      this.increment(); // <- Cette ligne causera une erreur
+    }, 1000);
+  }
+  increment() {
+    this.count++;
+    console.log("Count:", this.count);
+  }
+}
+
+const counter = new Counter();
+----
+
+[%auto-animate]
+=== Qui est `this` ? 
+[source, javascript]
+----
+class Counter {
+  constructor() {
+    this.count = 0;
+    this.startCounting();
+  }
+  startCounting() {
+    // Utilisation de setInterval avec une fonction fléchée
+    setInterval(() => {
+      this.increment(); // <- Fonctionne correctement
+    }, 1000);
+  }
+  increment() {
+    this.count++;
+    console.log("Count:", this.count);
+  }
+}
+
+const counter = new Counter();
+----
+
+=== Les fonctions callback
+_cf_ fonctionnement de la boucle `forEach` :
+[source, javascript]
+----
+const someFunction = (callback) => {
+  console.log("Dans la fonction someFunction");
+  callback(); // Appel de la fonction callback
+};
+const callback = () => {
+    console.log("Dans la fonction callback");
+};
+someFunction(callback); // Passer la fonction callback comme "paramètre" à someFunction
+----

@@ -1,0 +1,68 @@
+== Les boucles
+
+=== For 
+Identique au Java
+
+[source, javascript]
+----
+const person = ["John", "Doe", 25];
+   for (let i = 0; i < person.length; i++) {
+    console.log(person[i]);
+}
+----
+
+=== While
+Identique au Java
+
+[source, javascript]
+----
+let randomNumber;
+let foundOdd = false;
+
+while (!foundOdd) {
+  randomNumber = Math.floor(Math.random() * 100) + 1;
+  console.log(`Nombre aléatoire : ${randomNumber}`);
+  if (randomNumber % 2 !== 0) {
+    console.log('Nombre impair trouvé');
+    foundOdd = true;
+  }
+}
+----
+
+=== For... of 
+[source, javascript]
+----
+const person = ["John", "Doe", 25];
+for (let x of person) {
+    console.log(x);
+}
+----
+
+[%step]
+WARNING: Contrairement au `for` classique, on ne récupère pas l'index ici
+
+=== Fonction callback
+La fonction passée en paramètre implémente le comportement attendu à chaque tour de boucle.
+[source, javascript]
+----
+const persons = ["John", "Doe", 25];
+persons.forEach(function(person, index, tab) {
+  console.log(`Index ${index}, value ${person}, array ${tab}`)
+});
+----
+
+=== For... in
+Cette boucle permet d'itérer sur les attributs d'un objet (mais fonctionne également sur les tableaux)
+
+[source, javascript]
+----
+let oldCar = {
+ make: 'Toyota',
+ model: 'Tercel',
+ year: '1996'
+};
+
+for (let key in oldCar) {
+ console.log(`${key} --> ${oldCar[key]}`);
+}
+----

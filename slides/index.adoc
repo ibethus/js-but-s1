@@ -10,3 +10,6 @@
 :customcss: css/custom.css
 
 include::01_notions_de_base.adoc[]
+include::02_boucles.adoc[]
+include::03_fonctions.adoc[]
+include::04_collections.adoc[]
