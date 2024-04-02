@@ -26,15 +26,14 @@ class Personne {
 === Déclaration d'une classe
 Elle se manipule comme ceci :
 
-[source, javascript, highlight=1..2|3..4|5]
+[source, javascript, highlight=1..2|3|4]
 ----
-let personne1 = new Personne("Journet", "Nicholas");
-let personne2 = new Personne("Fossé", "Stéphane");
+let personne1 = new Personne("Valjean", "Jean");
+let personne2 = new Personne("Trouillefou", "Clopin");
 personne1.identite(); <1>
-personne2.identite();
 Personne.afficherNombreTotalPersonnes();<2>
 ----
-<1> `Output : 'La personne s'appelle Nicholas Journet'`
+<1> `Output : 'La personne s'appelle Jean Valjean'`
 <2> `Output : 2``
 
 === Visibilité

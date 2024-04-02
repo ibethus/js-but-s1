@@ -36,28 +36,10 @@
     --r-background-color: #e7e7e7;
     --r-main-color: #012d3f;
     --r-main-font: 'Titillium Web';
-}*/
-
-.title > .slide-background-content {
-    filter: blur(2px) brightness(120%);
-    opacity: 0.8;
-}
-
-.transparency.slide-background.present {
-    opacity: 0.20;
 }
 
 .reveal .progress {
     height: 9px;
-}
-
-img {
-    border-radius: 35px;
-}
-
-.sidebarblock.column.terminal {
-    width: 95%;
-    margin: -50px;
 }
 
 code {
@@ -94,4 +76,8 @@ code {
 
 .colist td {
     font-size: 1.5rem !important;
+}
+
+ul li p {
+    font-size: smaller;
 }

@@ -1,5 +1,5 @@
 == JavaScript Vanilla
-image::images/javascript.png[width=50%]
+image::images/javascript.png[width=40%]
 Tiré de http://js-but1.codenestedu.fr/
 
 == Notions de base

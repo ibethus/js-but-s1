@@ -1,0 +1,130 @@
+== Evénements
+
+[%auto-animate]
+=== EventListener
+.Fonction nommée
+[source, javascript]
+----
+let bouton = document.getElementById("bouton");
+bouton.addEventListener("click", maFonctionDeGestionEvenement);
+function maFonctionDeGestionEvenement(event){
+  console.log(event);
+}
+----
+
+[%auto-animate]
+=== EventListener
+.Fonction anonyme
+[source, javascript]
+----
+let bouton = document.getElementById("bouton");
+bouton.addEventListener("click", function (event){
+  console.log(event);
+});
+----
+
+[%auto-animate]
+=== EventListener
+.Fonction fléchée
+[source, javascript]
+----
+let bouton = document.getElementById("bouton");
+bouton.addEventListener("click",  (event) => {
+  console.log(event);
+});
+----
+
+[%auto-animate]
+=== EventListener
+.Suppression
+[source, javascript]
+----
+let div = document.getElementById("maDiv");
+div.addEventListener("click",  (event) => {
+  bouton.removeEventListener("click", maFonctionDeGestionEvenement);<1>
+});
+----
+<1> Lorsque les fonctions ne sont pas nommées, la méthodologie est différente !
+
+[%auto-animate]
+=== Qui est `this` ? 
+.Hors d'une classe
+[source, javascript]
+----
+const element =  document.getElementById("paragraphe");
+const name = 'Something Good';
+
+const onclick = function () { 
+    console.log(name); /* 'Something Good' */ 
+    this.style.color = 'red'; <1>
+};
+
+element.addEventListener('click', onclick, false);
+----
+[%step]
+<1> *OK* : Ici `this` référence le paragraphe cliqué
+
+[%auto-animate]
+=== Qui est `this` ? 
+.Hors d'une classe
+[source, javascript]
+----
+const element =  document.getElementById("paragraphe");
+const name = 'Something Good';
+
+const onclick = (event) => {
+    console.log(name); /* 'Something Good' */
+    this.style.color = 'red'; <1>
+    event.target.style.color = 'green'; <2>    
+};
+
+element.addEventListener('click', onclick, false);
+----
+[%step]
+<1> *KO* : `this` référence l'objet windows et pas le paragraphe
+<2> *OK* : Event est là pour récupérer l'élément ayant généré l'évènement
+
+[%auto-animate]
+=== Qui est `this` ? 
+.Dans une classe
+[source, javascript]
+----
+class Something {
+    constructor() {
+        this.name = 'Something Good';   
+    }
+    maMethodeFlechee = (event) =>{
+        console.log(`${this.name}`); <1>
+        event.target.style.color = 'green';
+    }
+}
+
+const something = new Something();
+const element =  document.getElementById("paragraphe");
+element.addEventListener('click', something.maMethodeFlechee);  
+----
+[%step]
+<1> *OK* : `this` est l'instance de `Something` car nous sommes dans une fonction fléchée
+
+[%auto-animate]
+=== Qui est `this` ? 
+.Dans une classe
+[source, javascript]
+----
+class Something {
+    constructor() {
+        this.name = 'Something Good';   
+    }
+    maMethodeClassique(){
+        console.log(`${this.name}`); <1>
+        this.style.color = 'red'; <2>
+    }
+}
+
+const something = new Something();
+const element =  document.getElementById("paragraphe");
+element.addEventListener('click', something.maMethodeClassique);  
+----
+[%step]
+<1> *KO* : Impossible car c'est une fonction nommée, qui a son propre contexte
+<2> *OK* : `this` représente bien le paragraphe cliqué
