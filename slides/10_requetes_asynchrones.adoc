@@ -1,0 +1,92 @@
+== Requêtes asynchrones
+
+=== Utilisation
+[source, javascript]
+----
+const monImage = document.querySelector('img');
+let maRequete = new Request('IUT.png');
+fetch(maRequete)<1>
+.then(reponse => {
+    if (!reponse.ok) {<2>
+        throw new Error(`erreur HTTP! statut: ${reponse.status}`);
+    }
+    return reponse.blob();<3>
+})
+.then(blob => {
+    let URLobjet = URL.createObjectURL(blob); <4>
+    monImage.src = URLobjet;
+});
+----
+[%step]
+<1> La requête part vers le serveur distant, lorsqu'elle revient, alors `then` est executé
+<2> Si la réponse est valide (code 200), alors on la traite, sinon on lève une erreur
+<3> On récupère le contenu de la requête, qu'on manipulera ensuite
+<4> A cette étape, on transforme le "blob" pour l'utiliser dans notre html
+
+=== Utilisation avec un json
+[source, javascript]
+----
+const myList = document.querySelector('ul');
+const myRequest = new Request('foot.json');
+
+fetch(myRequest)
+  .then((response) => response.json()) <1>
+  .then((data) => {
+    for (const v of data) {<2>
+      const listItem = document.createElement('li');
+      let text = `${v.vainqueur} a gagné la coupe en ${v.annee}`;<3>
+      listItem.textContent = text
+      myList.appendChild(listItem);    
+    }
+  })
+  .catch(console.error);
+----
+[%step]
+<1> On peut récupérer de cette façon le json associé à la requête 
+<2> JSON est un format qui permet de boucler sur le contenu (un Array)
+<3> Il faut avoir *lu l'API* pour savoir comment se nomment les attributs (ici "vainqueur" et "année")
+
+[%auto-animate]
+=== Paramètres de requête
+[source, javascript]
+----
+const apiURL = 'fruits&legumes.com';
+const endPoint = 'findMe';
+const type = 'legume';
+const couleur = 'vert';
+
+let apiEndpoint = 
+    `https://${apiURL}/${endPoint}?type=${type}&couleur=${couleur}` <1>
+----
+[%step]
+<1> L'url sera : `https://fruits&legumes.com/findMe?type=legume&couleur=vert`
+
+[%auto-animate]
+=== Paramètres de requête
+[%step]
+* 1er paramètre : `?nomDuParametre=`
+* Paramètres suivants : `&nomDuParametre=`
+
+=== Types de requête
+[%step]
+* `GET` : Récupérer des informations sur une ressource existante
+* `POST` : Créer une nouvelle ressource sur le serveur distant
+* `PATCH` : Mettre à jour une ressource existante
+
+=== Fonction asynchrone
+[source, javascript]
+----
+const maFonctionAsynchrone = async () => { <1>
+  try {
+      let response = await fetch(url, options);<2>
+      let result = await response.json();<3>
+      console.log(result);
+  } catch (error) {
+      console.error('Error:', error);
+  }
+}
+----
+[%step]
+<1> Utilisation du mot-clef `async` dans la déclaration de la fonction
+<2> Attend que la réponse arrive avant d'exécuter la ligne du dessous
+<3> Lit le corps de la réponse au format JSON

@@ -925,11 +925,55 @@ utilisateur.afficherNomComplet();</code></pre></div></div></div></section><secti
 
 const jsonString = JSON.stringify(person);
 console.log(jsonString); <i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
-<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : {name: 'John', age: 30, city: "New York"}</code></td></tr></table></div></div></section><section id="_convertir_en_objet"><h2>Convertir en objet</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const jsonString = '{"name":"John","age":30,"city":"New York"}';
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : {name: 'John', age: 30, city: 'New York'}</code></td></tr></table></div></div></section><section id="_convertir_en_objet"><h2>Convertir en objet</h2><div class="slide-content"><div class="openblock"><div class="content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const jsonString = '{"name":"John","age":30,"city":"New York"}';
 
 const person = JSON.parse(jsonString);
 console.log(person);<i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
-<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : {"name":"John","age":30,"city":"New York"}</code></td></tr></table></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : {"name":"John","age":30,"city":"New York"}</code></td></tr></table></div></div></div></div></section></section>
+<section><section id="_requêtes_asynchrones"><h2>Requêtes asynchrones</h2></section><section id="_utilisation"><h2>Utilisation</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const monImage = document.querySelector('img');
+let maRequete = new Request('IUT.png');
+fetch(maRequete)<i class="conum" data-value="1"></i><b>(1)</b>
+.then(reponse =&gt; {
+    if (!reponse.ok) {<i class="conum" data-value="2"></i><b>(2)</b>
+        throw new Error(`erreur HTTP! statut: ${reponse.status}`);
+    }
+    return reponse.blob();<i class="conum" data-value="3"></i><b>(3)</b>
+})
+.then(blob =&gt; {
+    let URLobjet = URL.createObjectURL(blob); <i class="conum" data-value="4"></i><b>(4)</b>
+    monImage.src = URLobjet;
+});</code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>La requête part vers le serveur distant, lorsqu&#8217;elle revient, alors <code>then</code> est executé</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Si la réponse est valide (code 200), alors on la traite, sinon on lève une erreur</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>On récupère le contenu de la requête, qu&#8217;on manipulera ensuite</td></tr><tr><td><i class="conum" data-value="4"></i><b>4</b></td><td>A cette étape, on transforme le "blob" pour l&#8217;utiliser dans notre html</td></tr></table></div></div></section><section id="_utilisation_avec_un_json"><h2>Utilisation avec un json</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const myList = document.querySelector('ul');
+const myRequest = new Request('foot.json');
+
+fetch(myRequest)
+  .then((response) =&gt; response.json()) <i class="conum" data-value="1"></i><b>(1)</b>
+  .then((data) =&gt; {
+    for (const v of data) {<i class="conum" data-value="2"></i><b>(2)</b>
+      const listItem = document.createElement('li');
+      let text = `${v.vainqueur} a gagné la coupe en ${v.annee}`;<i class="conum" data-value="3"></i><b>(3)</b>
+      listItem.textContent = text
+      myList.appendChild(listItem);
+    }
+  })
+  .catch(console.error);</code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>On peut récupérer de cette façon le json associé à la requête</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>JSON est un format qui permet de boucler sur le contenu (un Array)</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Il faut avoir <strong>lu l&#8217;API</strong> pour savoir comment se nomment les attributs (ici "vainqueur" et "année")</td></tr></table></div></div></section><section id="_paramètres_de_requête" data-auto-animate><h2>Paramètres de requête</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const apiURL = 'fruits&amp;legumes.com';
+const endPoint = 'findMe';
+const type = 'legume';
+const couleur = 'vert';
+
+let apiEndpoint =
+    `https://${apiURL}/${endPoint}?type=${type}&amp;couleur=${couleur}` <i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>L&#8217;url sera : <code><a href="https://fruits&amp;legumes.com/findMe?type=legume&amp;couleur=vert" class="bare">https://fruits&amp;legumes.com/findMe?type=legume&amp;couleur=vert</a></code></td></tr></table></div></div></section><section id="_paramètres_de_requête_2" data-auto-animate><h2>Paramètres de requête</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p>1er paramètre : <code>?nomDuParametre=</code></p></li><li class="fragment"><p>Paramètres suivants : <code>&amp;nomDuParametre=</code></p></li></ul></div></div></section><section id="_types_de_requête"><h2>Types de requête</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p><code>GET</code> : Récupérer des informations sur une ressource existante</p></li><li class="fragment"><p><code>POST</code> : Créer une nouvelle ressource sur le serveur distant</p></li><li class="fragment"><p><code>PATCH</code> : Mettre à jour une ressource existante</p></li></ul></div></div></section><section id="_fonction_asynchrone"><h2>Fonction asynchrone</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const maFonctionAsynchrone = async () =&gt; { <i class="conum" data-value="1"></i><b>(1)</b>
+  try {
+      let response = await fetch(url, options);<i class="conum" data-value="2"></i><b>(2)</b>
+      let result = await response.json();<i class="conum" data-value="3"></i><b>(3)</b>
+      console.log(result);
+  } catch (error) {
+      console.error('Error:', error);
+  }
+}</code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Utilisation du mot-clef <code>async</code> dans la déclaration de la méthode</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Attend que la réponse arrive avant d&#8217;exécuter la ligne du dessous</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Lit le corps de la réponse au format JSON</td></tr></table></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;

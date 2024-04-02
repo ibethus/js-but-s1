@@ -30,6 +30,7 @@ console.log(jsonString); <1>
 <1> `Output : {name: 'John', age: 30, city: 'New York'}`
 
 === Convertir en objet
+--
 [source, javascript]
 ----
 const jsonString = '{"name":"John","age":30,"city":"New York"}';
@@ -39,3 +40,4 @@ console.log(person);<1>
 ----
 [%step]
 <1> `Output : {"name":"John","age":30,"city":"New York"}`
+--
