@@ -58,5 +58,7 @@ const myObject = new MyClass();
 myObject.publicMethod();<1>
 myObjects.privateMethod();<2>
 ----
+--
 <1> `Output : méthode publique + méthode privée`
 <2> Erreur
+--
