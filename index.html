@@ -597,7 +597,11 @@ mySet.size(); // 1</code></pre></div></div></div></section><section id="_set_6" 
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let mySet = new Set();
 mySet.add(1); // Set()
 mySet.add(2); // Set()
-for (let item of mySet) console.log(item); // 1, 2</code></pre></div></div></div></section><section id="_map" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p>Principales caractéristiques :</p></div>
+for (let item of mySet) {
+  console.log(item); // 1, 2
+}
+// où
+mySet.forEach(value =&gt;  console.log(value));</code></pre></div></div></div></section><section id="_map" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p>Principales caractéristiques :</p></div>
 <div class="ulist"><ul><li class="fragment"><p>Liste de <strong>clés uniques</strong>, quel que soit leur type</p></li><li class="fragment"><p>Pas d'<strong>indexation</strong></p></li><li class="fragment"><p><strong>Itérable</strong></p></li><li class="fragment"><p>Taille <strong>dynamique</strong></p></li></ul></div></div></section><section id="_map_2" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p><code>set()</code> :</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let sayings = new Map();
 sayings.set("dog", "woof"); // Map()
@@ -613,10 +617,51 @@ sayings.set("dog", "woof"); // Map()
 sayings.size(); // 1</code></pre></div></div></div></section><section id="_map_6" data-auto-animate><h2>Map</h2><div class="slide-content"><div class="paragraph"><p>Itération :</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">for (let [key, value] of sayings) {
   console.log(key + " goes " + value);
-}</code></pre></div></div></div></section><section id="_comment_choisir" data-auto-animate><h2>Comment choisir ?</h2><div class="slide-content"><div class="paragraph"><p>Array si on veut :</p></div>
+}
+// ou
+sayings.forEach((value, key) =&gt; {
+  console.log(key + " goes " + value);
+})</code></pre></div></div></div></section><section id="_comment_choisir" data-auto-animate><h2>Comment choisir ?</h2><div class="slide-content"><div class="paragraph"><p>Array si on veut :</p></div>
 <div class="ulist"><ul><li class="fragment"><p>Liste ordonnée</p></li><li class="fragment"><p>Accéder aux objets <em>via</em> leur indice</p></li><li class="fragment"><p>Méthodes spécifiques (push, pop, slice, etc.)</p></li><li class="fragment"><p>Eléments dupliqués</p></li></ul></div></div></section><section id="_comment_choisir_2" data-auto-animate><h2>Comment choisir ?</h2><div class="slide-content"><div class="paragraph"><p>Set si on veut :</p></div>
-<div class="ulist"><ul><li class="fragment"><p>Valeurs uniques</p></li><li class="fragment"><p>Pas de clefs/valeurs associées</p></li><li class="fragment"><p>Recherche fréquente d&#8217;une valeur dans la liste</p></li></ul></div></div></section><section id="_comment_choisir_3" data-auto-animate><h2>Comment choisir ?</h2><div class="slide-content"><div class="paragraph"><p>Map si on veut :</p></div>
-<div class="ulist"><ul><li class="fragment"><p>Clefs/valeurs</p></li><li class="fragment"><p>Opérations fréquentes de recherche/modification d&#8217;une valeur <em>via</em> sa clef</p></li></ul></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<div class="ulist"><ul><li class="fragment"><p>Valeurs uniques</p></li><li class="fragment"><p>Pas de clefs/valeurs associées</p></li><li class="fragment"><p>Recherche fréquente d&#8217;une valeur dans la liste</p></li></ul></div></div></section><section id="_comment_choisir_3"><h2>Comment choisir ?</h2><div class="slide-content"><div class="paragraph"><p>Map si on veut :</p></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li class="fragment"><p>Clefs/valeurs</p></li><li class="fragment"><p>Opérations fréquentes de recherche/modification d&#8217;une valeur <em>via</em> sa clef</p></li></ul></div></div></div></div></section></section>
+<section><section id="_les_objets"><h2>Les objets</h2></section><section id="_déclaration_dune_classe" data-auto-animate><h2>Déclaration d&#8217;une classe</h2><div class="slide-content"><div class="paragraph"><p>Une classe se déclare <em>presque</em> comme en Java :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1|2|3,4,5,6,7|8,9,10|11,12,13" data-lang="javascript">class Personne {
+  static nombreTotalPersonnes = 0;
+  constructor(nom, prenom){
+      this.nom = nom;
+      this.prenom = prenom;
+      Personne.nombreTotalPersonnes++;
+  }
+  identite = () =&gt; {
+    console.log(`La personne s'appelle ${this.prenom} ${this.nom}`);
+  }
+  static afficherNombreTotalPersonnes = () =&gt; {
+      console.log(`${Personne.nombreTotalPersonnes} instances de Personne ont été créées`);
+  }
+}</code></pre></div></div></div></section><section id="_déclaration_dune_classe_2" data-auto-animate><h2>Déclaration d&#8217;une classe</h2><div class="slide-content"><div class="paragraph"><p>Elle se manipule comme ceci :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1,2|3,4|5" data-lang="javascript">let personne1 = new Personne("Journet", "Nicholas");
+let personne2 = new Personne("Fossé", "Stéphane");
+personne1.identite(); <i class="conum" data-value="1"></i><b>(1)</b>
+personne2.identite();
+Personne.afficherNombreTotalPersonnes();<i class="conum" data-value="2"></i><b>(2)</b></code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : 'La personne s&#8217;appelle Nicholas Journet'</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>Output : 2`</code></td></tr></table></div></div></section><section id="_visibilité"><h2>Visibilité</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1,2,3,4,5,6|7,8,9,10,11|12,13,14,15,16" data-lang="javascript">class MyClass {
+  #privateAttribute = "0";
+  #privateMethod = () =&gt; {
+    this.#privateAttribute++;
+    console.log("+ méthode privée");
+  }
+  publicMethod = () =&gt; {
+    console.log("méthode publique");
+    this.#privateMethod(); /* Appel de la méthode privée */
+    console.log(this.#privateAttribute); /* Accès à l'attribut privé */
+  }
+}
+const myObject = new MyClass();
+
+myObject.publicMethod();<i class="conum" data-value="1"></i><b>(1)</b>
+myObjects.privateMethod();<i class="conum" data-value="2"></i><b>(2)</b></code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : méthode publique + méthode privée</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Erreur</td></tr></table></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
