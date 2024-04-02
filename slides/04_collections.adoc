@@ -120,7 +120,11 @@ Itération :
 let mySet = new Set();
 mySet.add(1); // Set()
 mySet.add(2); // Set()
-for (let item of mySet) console.log(item); // 1, 2
+for (let item of mySet) {
+  console.log(item); // 1, 2
+}
+// où
+mySet.forEach(value =>  console.log(value));
 ----
 
 [%auto-animate]
@@ -186,6 +190,10 @@ Itération :
 for (let [key, value] of sayings) {
   console.log(key + " goes " + value);
 }
+// ou 
+sayings.forEach((value, key) => {
+  console.log(key + " goes " + value);
+})
 ----
 
 [%auto-animate]
@@ -207,10 +215,10 @@ Set si on veut :
 * Pas de clefs/valeurs associées
 * Recherche fréquente d'une valeur dans la liste
 
-[%auto-animate]
 === Comment choisir ?
 Map si on veut :
-
+--
 [%step]
 * Clefs/valeurs 
 * Opérations fréquentes de recherche/modification d'une valeur _via_ sa clef
+--

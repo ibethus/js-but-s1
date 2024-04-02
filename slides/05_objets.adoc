@@ -1,0 +1,62 @@
+== Les objets
+
+[%auto-animate]
+=== Déclaration d'une classe
+Une classe se déclare _presque_ comme en Java :
+
+[source, javascript, highlight=1|2|3..7|8..10|11..13]
+----
+class Personne {
+  static nombreTotalPersonnes = 0;
+  constructor(nom, prenom){
+      this.nom = nom;
+      this.prenom = prenom;
+      Personne.nombreTotalPersonnes++;
+  }
+  identite = () => {
+    console.log(`La personne s'appelle ${this.prenom} ${this.nom}`);
+  }
+  static afficherNombreTotalPersonnes = () => {
+      console.log(`${Personne.nombreTotalPersonnes} instances de Personne ont été créées`);
+  }
+}
+----
+
+[%auto-animate]
+=== Déclaration d'une classe
+Elle se manipule comme ceci :
+
+[source, javascript, highlight=1..2|3..4|5]
+----
+let personne1 = new Personne("Journet", "Nicholas");
+let personne2 = new Personne("Fossé", "Stéphane");
+personne1.identite(); <1>
+personne2.identite();
+Personne.afficherNombreTotalPersonnes();<2>
+----
+<1> `Output : 'La personne s'appelle Nicholas Journet'`
+<2> `Output : 2``
+
+=== Visibilité
+
+[source, javascript, highlight=1..6|7..11|12..]
+----
+class MyClass {
+  #privateAttribute = "0";
+  #privateMethod = () => {
+    this.#privateAttribute++;
+    console.log("+ méthode privée");
+  }
+  publicMethod = () => {
+    console.log("méthode publique");
+    this.#privateMethod(); /* Appel de la méthode privée */
+    console.log(this.#privateAttribute); /* Accès à l'attribut privé */
+  }
+}
+const myObject = new MyClass();
+
+myObject.publicMethod();<1>
+myObjects.privateMethod();<2>
+----
+<1> `Output : méthode publique + méthode privée`
+<2> Erreur
