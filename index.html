@@ -413,7 +413,7 @@ ul.byline {
 ul.byline li + li {
   margin-top: 0.25em;
 }
-</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css"><link rel="stylesheet" href="css/custom.css"></head><body><div class="reveal"><div class="slides"><section id="_javascript_vanilla"><h2>JavaScript Vanilla</h2><div class="slide-content"><div class="imageblock"><img src="images/javascript.png" alt="javascript" width="50%"></div>
+</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/v4-shims.min.css"><link rel="stylesheet" href="css/custom.css"></head><body><div class="reveal"><div class="slides"><section id="_javascript_vanilla"><h2>JavaScript Vanilla</h2><div class="slide-content"><div class="imageblock"><img src="images/javascript.png" alt="javascript" width="40%"></div>
 <div class="paragraph"><p>Tiré de <a href="http://js-but1.codenestedu.fr/" class="bare">http://js-but1.codenestedu.fr/</a></p></div></div></section>
 <section><section id="_notions_de_base"><h2>Notions de base</h2></section><section id="_types" data-auto-animate><h2>Types</h2><div class="slide-content"><div class="ulist"><div class="title">Primitifs</div><ul><li class="fragment"><p><code>string</code> : à ne pas confondre avec <code>String</code></p></li><li class="fragment"><p><code>boolean</code></p></li><li class="fragment"><p><code>number</code></p></li><li class="fragment"><p><code>function</code></p></li><li class="fragment"><p><code>symbol</code></p></li><li class="fragment"><p><code>undefined</code></p></li><li class="fragment"><p><code>null</code></p></li></ul></div></div></section><section id="_types_2" data-auto-animate><h2>Types</h2><div class="slide-content"><div class="ulist"><div class="title">Objets</div><ul><li class="fragment"><p><code>Date</code></p></li><li class="fragment"><p><code>Array</code></p></li><li class="fragment"><p><code>String</code></p></li></ul></div>
 <div class="openblock fragment"><div class="content"><div class="ulist"><ul><li><p>Objets personalisés :</p></li></ul></div>
@@ -640,12 +640,11 @@ sayings.forEach((value, key) =&gt; {
       console.log(`${Personne.nombreTotalPersonnes} instances de Personne ont été créées`);
   }
 }</code></pre></div></div></div></section><section id="_déclaration_dune_classe_2" data-auto-animate><h2>Déclaration d&#8217;une classe</h2><div class="slide-content"><div class="paragraph"><p>Elle se manipule comme ceci :</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1,2|3,4|5" data-lang="javascript">let personne1 = new Personne("Journet", "Nicholas");
-let personne2 = new Personne("Fossé", "Stéphane");
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1,2|3|4" data-lang="javascript">let personne1 = new Personne("Valjean", "Jean");
+let personne2 = new Personne("Trouillefou", "Clopin");
 personne1.identite(); <i class="conum" data-value="1"></i><b>(1)</b>
-personne2.identite();
 Personne.afficherNombreTotalPersonnes();<i class="conum" data-value="2"></i><b>(2)</b></code></pre></div></div>
-<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : 'La personne s&#8217;appelle Nicholas Journet'</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>Output : 2`</code></td></tr></table></div></div></section><section id="_visibilité"><h2>Visibilité</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1,2,3,4,5,6|7,8,9,10,11|12,13,14,15,16" data-lang="javascript">class MyClass {
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : 'La personne s&#8217;appelle Jean Valjean'</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>Output : 2`</code></td></tr></table></div></div></section><section id="_visibilité"><h2>Visibilité</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1,2,3,4,5,6|7,8,9,10,11|12,13,14,15,16" data-lang="javascript">class MyClass {
   #privateAttribute = "0";
   #privateMethod = () =&gt; {
     this.#privateAttribute++;
@@ -663,7 +662,7 @@ myObject.publicMethod();<i class="conum" data-value="1"></i><b>(1)</b>
 myObjects.privateMethod();<i class="conum" data-value="2"></i><b>(2)</b></code></pre></div></div>
 <div class="openblock"><div class="content"><div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : méthode publique + méthode privée</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Erreur</td></tr></table></div></div></div></div></section></section>
 <section><section id="_document_object_model"><h2>Document Object Model</h2></section><section id="_window"><h2><code>Window</code></h2><div class="slide-content"><div class="paragraph"><p>Quelques proprietés :</p></div>
-<div class="openblock fragment"><div class="content"><div class="ulist"><ul><li><p><code>window.innerHeight</code>  &#8594; Hauteur de la fenêtre</p></li><li><p><code>window.innerWidth</code>  &#8594; Largeur de la fenêtre</p></li><li><p><code>window.location</code>  &#8594; URL de la page</p></li><li><p><code>window.navigator</code>  &#8594; Informations sur le navigateur</p></li><li><p><code>window.screen</code> &#8594; Informations sur l&#8217;écran</p></li><li><p><code>window.document</code>  &#8594; Document HTML de la page</p></li></ul></div></div></div></div></section><section id="_document" data-auto-animate><h2><code>Document</code></h2><div class="slide-content"><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Tous les éléments du document HTML d&#8217;une page web sont représentés par des objets Javascript. Ceux-ci sont structurés sous forme d&#8217;un arbre qui reflète la structure du document HTML.</td></tr></table></div></div></section><section id="_document_2" data-auto-animate><h2><code>Document</code></h2><div class="slide-content"><div class="paragraph"><p>Comment accéder aux noeuds ?</p></div>
+<div class="openblock"><div class="content"><div class="ulist"><ul><li><p><code>window.innerHeight</code>  &#8594; Hauteur de la fenêtre</p></li><li><p><code>window.innerWidth</code>  &#8594; Largeur de la fenêtre</p></li><li><p><code>window.location</code>  &#8594; URL de la page</p></li><li><p><code>window.navigator</code>  &#8594; Informations sur le navigateur</p></li><li><p><code>window.screen</code> &#8594; Informations sur l&#8217;écran</p></li><li><p><code>window.document</code>  &#8594; Document HTML de la page</p></li></ul></div></div></div></div></section><section id="_document" data-auto-animate><h2><code>Document</code></h2><div class="slide-content"><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Tous les éléments du document HTML d&#8217;une page web sont représentés par des objets Javascript. Ceux-ci sont structurés sous forme d&#8217;un arbre qui reflète la structure du document HTML.</td></tr></table></div></div></section><section id="_document_2" data-auto-animate><h2><code>Document</code></h2><div class="slide-content"><div class="paragraph"><p>Comment accéder aux noeuds ?</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
     &lt;h1&gt;Titre&lt;/h1&gt;
     &lt;div id="images"&gt;
@@ -685,7 +684,192 @@ myObjects.privateMethod();<i class="conum" data-value="2"></i><b>(2)</b></code><
     &lt;div&gt;
     &lt;script src="src.js"&gt;&lt;/script&gt;
 &lt;/body&gt;</code></pre></div></div>
-<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>document.body.children[0]</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>document.body.children[1]</code></td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td><code>document.body.children[1].children[0]</code></td></tr></table></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>document.body.children[0]</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>document.body.children[1]</code></td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td><code>document.body.children[1].children[0]</code></td></tr></table></div></div></section><section id="_les_types_de_noeuds" class="columns" data-auto-animate><h2>Les types de noeuds</h2><div class="slide-content"><div class="openblock column"><div class="content"><div class="ulist"><ul><li><p><strong>ELEMENT_NODE</strong> : <code>&lt;p&gt;</code> ou <code>&lt;div&gt;</code> par exemple</p></li><li><p><strong>TEXT_NODE</strong> : Le texte actuel d&#8217;un élément</p></li><li><p><strong>PROCESSING_INSTRUCTION_NODE</strong></p></li><li><p><strong>COMMENT_NODE</strong> : Un noeud <code>Comment</code></p></li></ul></div></div></div>
+<div class="openblock column"><div class="content"><div class="ulist"><ul><li><p><strong>DOCUMENT_NODE</strong> : Un noeud <code>Document</code></p></li><li><p><strong>DOCUMENT_TYPE_NODE</strong> : Un noeud <code>DocumentType</code> (&lt;!DOCTYPE html&gt; par exemple)</p></li><li><p><strong>DOCUMENT_FRAGMENT_NODE</strong> : Un noeud <code>DocumentFragment</code></p></li></ul></div></div></div></div></section><section id="_les_types_de_noeuds_2" data-auto-animate><h2>Les types de noeuds</h2><div class="slide-content"><div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Les autres types de noeuds sont <strong>dépréciés</strong>.</td></tr></table></div></div></section><section id="_manipulation_des_noeuds" data-auto-animate><h2>Manipulation des noeuds</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="2" data-lang="html">&lt;body&gt;
+  &lt;h1 id ="titre"&gt;Titre&lt;/h1&gt;
+  &lt;p id = "paragraphe1"&gt; Bonjour &lt;/p&gt;
+  &lt;div id="images"&gt;
+    &lt;img src="https://www.iut.fr/info-2.jpg"&gt;
+    &lt;img src="https://www.iut.fr/cours.jpeg"&gt;
+  &lt;/div&gt;
+  &lt;div id="uneDiv"&gt;
+    &lt;p&gt;Images de l'IUT&lt;p&gt;
+  &lt;div&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let node = document.getElementById("titre");
+console.log(node.nodeType);</code></pre></div></div>
+<div class="paragraph fragment"><p><code>Output : Element node</code></p></div></div></section><section id="_manipulation_des_noeuds_2" data-auto-animate><h2>Manipulation des noeuds</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="8,9,10" data-lang="html">&lt;body&gt;
+  &lt;h1 id ="titre"&gt;Titre&lt;/h1&gt;
+  &lt;p id = "paragraphe1"&gt; Bonjour &lt;/p&gt;
+  &lt;div id="images"&gt;
+    &lt;img src="https://www.iut.fr/info-2.jpg"&gt;
+    &lt;img src="https://www.iut.fr/cours.jpeg"&gt;
+  &lt;/div&gt;
+  &lt;div id="uneDiv"&gt;
+    &lt;p&gt;Images de l'IUT&lt;p&gt;
+  &lt;div&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let node = document.getElementById("uneDiv").firstElementChild.firstChild;
+console.log(node.nodeType);</code></pre></div></div>
+<div class="paragraph fragment"><p><code>Output : Text node</code></p></div></div></section><section id="_manipulation_des_noeuds_3" data-auto-animate><h2>Manipulation des noeuds</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="8,9,10" data-lang="html">&lt;body&gt;
+  &lt;h1 id ="titre"&gt;Titre&lt;/h1&gt;
+  &lt;p id = "paragraphe1"&gt; Bonjour &lt;/p&gt;
+  &lt;div id="images"&gt;
+    &lt;img src="https://www.iut.fr/info-2.jpg"&gt;
+    &lt;img src="https://www.iut.fr/cours.jpeg"&gt;
+  &lt;/div&gt;
+  &lt;div id="uneDiv"&gt;
+    &lt;p&gt;Images de l'IUT&lt;p&gt;
+  &lt;div&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let node = document.getElementById("uneDiv").firstElementChild.firstElementChild;
+console.log(node.nodeType);</code></pre></div></div>
+<div class="admonitionblock warning fragment"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Erreur !</td></tr></table></div></div></section><section id="_manipulation_des_noeuds_4" data-auto-animate><h2>Manipulation des noeuds</h2><div class="slide-content"><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Pour manipuler simplement du texte on utilisera :</td></tr></table></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let valeur = document.getElementById("titre").textContent;
+console.log(valeur); // le texte "Titre"
+document.getElementById("titre").textContent = "Le titre a changé";</code></pre></div></div></div></section><section id="_accès_aux_noeuds"><h2>Accès aux noeuds</h2><div class="slide-content"><div class="paragraph"><p>Trois méthodes principales :</p></div>
+<div class="openblock fragment" data-fragment-index="1"><div class="content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let elementUnique = document.getElementById("personName")</code></pre></div></div></div></div>
+<div class="openblock fragment" data-fragment-index="2"><div class="content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let htmlCollection = document.getElementsByTagName("div")<i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Tag = balise html</td></tr></table></div></div></div>
+<div class="openblock fragment" data-fragment-index="3"><div class="content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let nodeListe = document.querySelectorAll("un-selecteur-css")</code></pre></div></div></div></div></div></section><section id="_modification_du_dom" data-auto-animate><h2>Modification du DOM</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1,2|0,1,2,3|0,1,2,3,4,5|7,8,9|11|12|0,1,2,3,4,5,6,7,8,9,10,11,12" data-lang="javascript">let div = document.createElement('div');
+let paragraphe = document.createElement('p');
+let newtext = document.createTextNode("Valjean");
+paragraphe.appendChild(newText);
+div.appendChild(paragraphe);
+
+let otherParagraphe = document.createElement('p');
+let otherText = document.createTextNode("Bonjour");
+otherParagraphe.appendChild(otherText);
+
+div.insertBefore(otherParagraphe, paragraphe);
+div.remove();</code></pre></div></div></div></section><section id="_modification_du_dom_2" data-auto-animate><h2>Modification du DOM</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;div&gt;
+        &lt;p&gt;Bonjour&lt;/p&gt;
+        &lt;p&gt;Valjean&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre></div></div></div></section><section id="_se_déplacer_dans_le_dom" data-auto-animate><h2>Se déplacer dans le DOM</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;div&gt;
+        &lt;a href="www.google.com"&gt;Un lien&lt;/a&gt;
+        &lt;p id="personName"&gt;Georges&lt;/p&gt;
+        &lt;img src="petitChat.png"/&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="1|0,1,2" data-lang="javascript">let node = document.getElementById("personName");
+console.log(node.parentNode)
+console.log(node.previousSibling)
+console.log(node.nextSibling)
+console.log(node.childNodes)</code></pre></div></div></div></section><section id="_se_déplacer_dans_le_dom_2" data-auto-animate><h2>Se déplacer dans le DOM</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;div&gt;
+        &lt;a href="www.google.com"&gt;Un lien&lt;/a&gt;
+        &lt;p id="personName"&gt;Georges&lt;/p&gt;
+        &lt;img src="petitChat.png"/&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="0,1,2|0,1,2,3" data-lang="javascript">let node = document.getElementById("personName");
+console.log(node.parentNode)<i class="conum" data-value="1"></i><b>(1)</b>
+console.log(node.previousSibling)
+console.log(node.nextSibling)
+console.log(node.childNodes)</code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : &lt;div&gt;</code></td></tr></table></div></div></section><section id="_se_déplacer_dans_le_dom_3" data-auto-animate><h2>Se déplacer dans le DOM</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;div&gt;
+        &lt;a href="www.google.com"&gt;Un lien&lt;/a&gt;
+        &lt;p id="personName"&gt;Georges&lt;/p&gt;
+        &lt;img src="petitChat.png"/&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="0,1,2,3|0,1,2,3,4" data-lang="javascript">let node = document.getElementById("personName");
+console.log(node.parentNode)<i class="conum" data-value="1"></i><b>(1)</b>
+console.log(node.previousSibling)<i class="conum" data-value="2"></i><b>(2)</b>
+console.log(node.nextSibling)
+console.log(node.childNodes)</code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : &lt;div&gt;</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>Output : &lt;a&gt;</code></td></tr></table></div></div></section><section id="_se_déplacer_dans_le_dom_4" data-auto-animate><h2>Se déplacer dans le DOM</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;div&gt;
+        &lt;a href="www.google.com"&gt;Un lien&lt;/a&gt;
+        &lt;p id="personName"&gt;Georges&lt;/p&gt;
+        &lt;img src="petitChat.png"/&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="0,1,2,3,4|0,1,2,3,4,5" data-lang="javascript">let node = document.getElementById("personName");
+console.log(node.parentNode)<i class="conum" data-value="1"></i><b>(1)</b>
+console.log(node.previousSibling)<i class="conum" data-value="2"></i><b>(2)</b>
+console.log(node.nextSibling)<i class="conum" data-value="3"></i><b>(3)</b>
+console.log(node.childNodes)</code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : &lt;div&gt;</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>Output : &lt;a&gt;</code></td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td><code>Output : &lt;img&gt;</code></td></tr></table></div></div></section><section id="_se_déplacer_dans_le_dom_5" data-auto-animate><h2>Se déplacer dans le DOM</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;div&gt;
+        &lt;a href="www.google.com"&gt;Un lien&lt;/a&gt;
+        &lt;p id="personName"&gt;Georges&lt;/p&gt;
+        &lt;img src="petitChat.png"/&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="0,1,2,3,4,5" data-lang="javascript">let node = document.getElementById("personName");
+console.log(node.parentNode)<i class="conum" data-value="1"></i><b>(1)</b>
+console.log(node.previousSibling)<i class="conum" data-value="2"></i><b>(2)</b>
+console.log(node.nextSibling)<i class="conum" data-value="3"></i><b>(3)</b>
+console.log(node.childNodes)<i class="conum" data-value="4"></i><b>(4)</b></code></pre></div></div>
+<div class="openblock columns"><div class="content"><div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : &lt;div&gt;</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>Output : &lt;a&gt;</code></td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td><code>Output : &lt;img&gt;</code></td></tr><tr><td><i class="conum" data-value="4"></i><b>4</b></td><td><code>Output : NodeList &#8594; length = 0</code></td></tr></table></div></div></div></div></section><section id="_qui_utiliser" data-auto-animate><h2>Qui utiliser ?</h2><div class="slide-content"><div class="paragraph"><p><code>value</code> :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Propriété spécifique pour les éléments de formulaire tels que les inputs, les textareas, etc</p></li><li class="fragment"><p>Permet de définir ou d&#8217;obtenir la valeur actuelle de l&#8217;élément de formulaire</p></li></ul></div></div></section><section id="_qui_utiliser_2" data-auto-animate><h2>Qui utiliser ?</h2><div class="slide-content"><div class="paragraph"><p><code>textContent</code> :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Propriété spécifique aux nœuds DOM qui représentent des éléments (comme <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;span&gt;</code>, etc.)</p></li><li class="fragment"><p>Renvoie le contenu textuel de l&#8217;élément et de tous ses descendants sous forme de texte brut</p></li><li class="fragment"><p>Utilisée pour récupérer ou définir le contenu textuel visible d&#8217;un élément, en ignorant tout balisage HTML présent à l&#8217;intérieur</p></li></ul></div></div></section><section id="_qui_utiliser_3" data-auto-animate><h2>Qui utiliser ?</h2><div class="slide-content"><div class="paragraph"><p><code>nodeValue</code> :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>Propriété générale pour tous les nœuds DOM, pas seulement les éléments de formulaire</p></li><li class="fragment"><p>Permet d&#8217;accéder ou de définir la valeur du nœud DOM, qui peut être du texte, des commentaires, etc</p></li></ul></div></div></section></section>
+<section><section id="_evénements"><h2>Evénements</h2></section><section id="_eventlistener" data-auto-animate><h2>EventListener</h2><div class="slide-content"><div class="listingblock"><div class="title">Fonction nommée</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let bouton = document.getElementById("bouton");
+bouton.addEventListener("click", maFonctionDeGestionEvenement);
+function maFonctionDeGestionEvenement(event){
+  console.log(event);
+}</code></pre></div></div></div></section><section id="_eventlistener_2" data-auto-animate><h2>EventListener</h2><div class="slide-content"><div class="listingblock"><div class="title">Fonction anonyme</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let bouton = document.getElementById("bouton");
+bouton.addEventListener("click", function (event){
+  console.log(event);
+});</code></pre></div></div></div></section><section id="_eventlistener_3" data-auto-animate><h2>EventListener</h2><div class="slide-content"><div class="listingblock"><div class="title">Fonction fléchée</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let bouton = document.getElementById("bouton");
+bouton.addEventListener("click",  (event) =&gt; {
+  console.log(event);
+});</code></pre></div></div></div></section><section id="_eventlistener_4" data-auto-animate><h2>EventListener</h2><div class="slide-content"><div class="listingblock"><div class="title">Suppression</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let div = document.getElementById("maDiv");
+div.addEventListener("click",  (event) =&gt; {
+  bouton.removeEventListener("click", maFonctionDeGestionEvenement);<i class="conum" data-value="1"></i><b>(1)</b>
+});</code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Lorsque les fonctions ne sont pas nommées, la méthodologie est différente !</td></tr></table></div></div></section><section id="_qui_est_this_4" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="listingblock"><div class="title">Hors d&#8217;une classe</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const element =  document.getElementById("paragraphe");
+const name = 'Something Good';
+
+const onclick = function () {
+    console.log(name); /* 'Something Good' */
+    this.style.color = 'red'; <i class="conum" data-value="1"></i><b>(1)</b>
+};
+
+element.addEventListener('click', onclick, false);</code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><strong>OK</strong> : Ici <code>this</code> référence le paragraphe cliqué</td></tr></table></div></div></section><section id="_qui_est_this_5" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="listingblock"><div class="title">Hors d&#8217;une classe</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const element =  document.getElementById("paragraphe");
+const name = 'Something Good';
+
+const onclick = (event) =&gt; {
+    console.log(name); /* 'Something Good' */
+    this.style.color = 'red'; <i class="conum" data-value="1"></i><b>(1)</b>
+    event.target.style.color = 'green'; <i class="conum" data-value="2"></i><b>(2)</b>
+};
+
+element.addEventListener('click', onclick, false);</code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><strong>KO</strong> : <code>this</code> référence l&#8217;objet windows et pas le paragraphe</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><strong>OK</strong> : Event est là pour récupérer l&#8217;élément ayant généré l&#8217;évènement</td></tr></table></div></div></section><section id="_qui_est_this_6" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="listingblock"><div class="title">Dans une classe</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">class Something {
+    constructor() {
+        this.name = 'Something Good';
+    }
+    maMethodeFlechee = (event) =&gt;{
+        console.log(`${this.name}`); <i class="conum" data-value="1"></i><b>(1)</b>
+        event.target.style.color = 'green';
+    }
+}
+
+const something = new Something();
+const element =  document.getElementById("paragraphe");
+element.addEventListener('click', something.maMethodeFlechee);</code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><strong>OK</strong> : <code>this</code> est l&#8217;instance de <code>Something</code> car nous sommes dans une fonction fléchée</td></tr></table></div></div></section><section id="_qui_est_this_7" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="listingblock"><div class="title">Dans une classe</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">class Something {
+    constructor() {
+        this.name = 'Something Good';
+    }
+    maMethodeClassique(){
+        console.log(`${this.name}`); <i class="conum" data-value="1"></i><b>(1)</b>
+        this.style.color = 'red'; <i class="conum" data-value="2"></i><b>(2)</b>
+    }
+}
+
+const something = new Something();
+const element =  document.getElementById("paragraphe");
+element.addEventListener('click', something.maMethodeClassique);</code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><strong>KO</strong> : Impossible car c&#8217;est une fonction nommée, qui a son propre contexte</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><strong>OK</strong> : <code>this</code> représente bien le paragraphe cliqué</td></tr></table></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
@@ -825,7 +1009,7 @@ Reveal.initialize({
   // The "normal" size of the presentation, aspect ratio will be preserved
   // when the presentation is scaled to fit different resolutions. Can be
   // specified using percentage units.
-  width: 960,
+  width: 1080,
   height: 700,
 
   // Factor of the display size that should remain empty around the content
@@ -902,13 +1086,13 @@ function toArray(o) {
 }
 
 Reveal.addEventListener('slidechanged', function () {
-  layoutSlideContents(960, 700)
+  layoutSlideContents(1080, 700)
 });
 Reveal.addEventListener('ready', function () {
-  layoutSlideContents(960, 700)
+  layoutSlideContents(1080, 700)
 });
 Reveal.addEventListener('resize', function () {
-  layoutSlideContents(960, 700)
+  layoutSlideContents(1080, 700)
 });</script><link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
 
