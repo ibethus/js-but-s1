@@ -856,7 +856,7 @@ element.addEventListener('click', onclick, false);</code></pre></div></div>
 const something = new Something();
 const element =  document.getElementById("paragraphe");
 element.addEventListener('click', something.maMethodeFlechee);</code></pre></div></div>
-<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><strong>OK</strong> : <code>this</code> est l&#8217;instance de <code>Something</code> car nous sommes dans une fonction fléchée</td></tr></table></div></div></section><section id="_qui_est_this_7" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="listingblock"><div class="title">Dans une classe</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">class Something {
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><strong>OK</strong> : <code>this</code> est l&#8217;instance de <code>Something</code> car nous sommes dans une fonction fléchée</td></tr></table></div></div></section><section id="_qui_est_this_7" data-auto-animate><h2>Qui est <code>this</code> ?</h2><div class="slide-content"><div class="openblock"><div class="content"><div class="listingblock"><div class="title">Dans une classe</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">class Something {
     constructor() {
         this.name = 'Something Good';
     }
@@ -869,7 +869,46 @@ element.addEventListener('click', something.maMethodeFlechee);</code></pre></div
 const something = new Something();
 const element =  document.getElementById("paragraphe");
 element.addEventListener('click', something.maMethodeClassique);</code></pre></div></div>
-<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><strong>KO</strong> : Impossible car c&#8217;est une fonction nommée, qui a son propre contexte</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><strong>OK</strong> : <code>this</code> représente bien le paragraphe cliqué</td></tr></table></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><strong>KO</strong> : Impossible car c&#8217;est une fonction nommée, qui a son propre contexte</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><strong>OK</strong> : <code>this</code> représente bien le paragraphe cliqué</td></tr></table></div></div></div></div></section></section>
+<section><section id="_structure_du_code"><h2>Structure du code</h2></section><section id="_importexport_global" data-auto-animate><h2>Import/Export global</h2><div class="slide-content"><div class="listingblock"><div class="title">Utilisateur.js</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">export default class Utilisateur {
+    #nom;
+    #prenom;
+
+    constructor(nom, prenom) {
+        this.#nom = nom;
+        this.#prenom = prenom;
+    }
+
+    afficherNomComplet = () =&gt; {
+        console.log(`Nom complet: ${this.nom} ${this.prenom}`);
+    }
+}</code></pre></div></div></div></section><section id="_importexport_global_2" data-auto-animate><h2>Import/Export global</h2><div class="slide-content"><div class="listingblock"><div class="title">app.js</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">import NomDeVotreChoix from './Utilisateur.js';
+
+// Création d'une instance de la classe Utilisateur
+const utilisateur = new NomDeVotreChoix("Doe", "John");
+// Utilisation des méthodes de la classe Utilisateur
+utilisateur.afficherNomComplet();</code></pre></div></div></div></section><section id="_importexport_classe_nommée" data-auto-animate><h2>Import/Export classe nommée</h2><div class="slide-content"><div class="listingblock"><div class="title">Utilisateur.js</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">export class Utilisateur {
+    // Même code que précédemment
+}</code></pre></div></div></div></section><section id="_importexport_classe_nommée_2" data-auto-animate><h2>Import/Export classe nommée</h2><div class="slide-content"><div class="listingblock"><div class="title">app.js import d&#8217;une classe nommée</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">import { Utilisateur } from './Utilisateur.js';
+const utilisateur = new Utilisateur("Doe", "John");
+
+// Utilisation des méthodes de la classe Utilisateur
+utilisateur.afficherNomComplet();</code></pre></div></div></div></section><section id="_import_en_html" data-auto-animate><h2>Import en html</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;p&gt; du texte &lt;/p&gt;
+    &lt;script&gt;
+    //du code JS
+    &lt;/script&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Pas bien !</td></tr></table></div></div></section><section id="_import_en_html_2" data-auto-animate><h2>Import en html</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;p&gt; du texte &lt;/p&gt;
+    &lt;script src="chemin/vers/votre/fichier.js"&gt;&lt;/script&gt;
+    &lt;script src="chemin/vers/votre/autreFichier.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="admonitionblock important"><table><tr><td class="icon"><i class="fa fa-exclamation-circle" title="Important"></i></td><td class="content">Mieux&#8230;&#8203;</td></tr></table></div></div></section><section id="_import_en_html_3" data-auto-animate><h2>Import en html</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-lang="html">&lt;body&gt;
+    &lt;button id="b1"&gt;Créer un utilisateur&lt;/button&gt;
+    &lt;script type="module" src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre></div></div>
+<div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Très bien !</td></tr></table></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
