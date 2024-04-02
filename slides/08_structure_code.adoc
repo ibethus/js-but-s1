@@ -1,0 +1,95 @@
+== Structure du code
+
+[%auto-animate]
+=== Import/Export global
+.Utilisateur.js
+[source, javascript]
+----
+export default class Utilisateur {
+    #nom;
+    #prenom;
+
+    constructor(nom, prenom) {
+        this.#nom = nom;
+        this.#prenom = prenom;
+    }
+
+    afficherNomComplet = () => {
+        console.log(`Nom complet: ${this.nom} ${this.prenom}`);
+    }
+}   
+----
+
+[%auto-animate]
+=== Import/Export global
+.app.js
+[source, javascript]
+----
+import NomDeVotreChoix from './Utilisateur.js';
+
+// Création d'une instance de la classe Utilisateur
+const utilisateur = new NomDeVotreChoix("Doe", "John");
+// Utilisation des méthodes de la classe Utilisateur
+utilisateur.afficherNomComplet();
+----
+
+[%auto-animate]
+=== Import/Export classe nommée
+.Utilisateur.js
+[source, javascript]
+----
+export class Utilisateur {
+    // Même code que précédemment
+}   
+----
+
+[%auto-animate]
+=== Import/Export classe nommée
+.app.js import d'une classe nommée
+[source, javascript]
+----
+import { Utilisateur } from './Utilisateur.js';
+const utilisateur = new Utilisateur("Doe", "John");
+
+// Utilisation des méthodes de la classe Utilisateur
+utilisateur.afficherNomComplet(); 
+----
+
+[%auto-animate]
+=== Import en html
+[source, html]
+----
+<body>
+    <p> du texte </p>
+    <script>
+    //du code JS
+    </script>
+</body>
+----
+WARNING: Pas bien !
+
+[%auto-animate]
+=== Import en html
+[source, html]
+----
+<body>
+    <p> du texte </p>
+    <script src="chemin/vers/votre/fichier.js"></script>
+    <script src="chemin/vers/votre/autreFichier.js"></script>
+</body>
+----
+IMPORTANT: Mieux...
+
+[%auto-animate]
+=== Import en html
+[source, html]
+----
+<body>
+    <button id="b1">Créer un utilisateur</button>
+    <script type="module" src="app.js"></script>
+</body>
+----
+TIP: Très bien !
+
+
+

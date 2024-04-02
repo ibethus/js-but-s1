@@ -108,6 +108,7 @@ element.addEventListener('click', something.maMethodeFlechee);
 
 [%auto-animate]
 === Qui est `this` ? 
+--
 .Dans une classe
 [source, javascript]
 ----
@@ -128,3 +129,4 @@ element.addEventListener('click', something.maMethodeClassique);
 [%step]
 <1> *KO* : Impossible car c'est une fonction nommée, qui a son propre contexte
 <2> *OK* : `this` représente bien le paragraphe cliqué
+--
