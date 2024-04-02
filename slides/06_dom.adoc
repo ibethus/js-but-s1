@@ -242,10 +242,10 @@ div.remove();
 [source, javascript, highlight=1|..2]
 ----
 let node = document.getElementById("personName");
-console.log(node.parentNode)
-console.log(node.previousSibling)
-console.log(node.nextSibling)
-console.log(node.childNodes)
+console.log(node.parentNode)<1>
+console.log(node.previousSibling)<2>
+console.log(node.nextSibling)<3>
+console.log(node.childNodes)<4>
 ----
 
 [%auto-animate]
@@ -265,9 +265,9 @@ console.log(node.childNodes)
 ----
 let node = document.getElementById("personName");
 console.log(node.parentNode)<1>
-console.log(node.previousSibling)
-console.log(node.nextSibling)
-console.log(node.childNodes)
+console.log(node.previousSibling)<2>
+console.log(node.nextSibling)<3>
+console.log(node.childNodes)<4>
 ----
 <1> `Output : <div>`
 
@@ -289,8 +289,8 @@ console.log(node.childNodes)
 let node = document.getElementById("personName");
 console.log(node.parentNode)<1>
 console.log(node.previousSibling)<2>
-console.log(node.nextSibling)
-console.log(node.childNodes)
+console.log(node.nextSibling)<3>
+console.log(node.childNodes)<4>
 ----
 <1> `Output : <div>`
 <2> `Output : <a>`
@@ -315,7 +315,7 @@ let node = document.getElementById("personName");
 console.log(node.parentNode)<1>
 console.log(node.previousSibling)<2>
 console.log(node.nextSibling)<3>
-console.log(node.childNodes)
+console.log(node.childNodes)<4>
 ----
 <1> `Output : <div>`
 <2> `Output : <a>`

@@ -66,6 +66,7 @@ utilisateur.afficherNomComplet();
     </script>
 </body>
 ----
+[%step]
 WARNING: Pas bien !
 
 [%auto-animate]
@@ -78,6 +79,7 @@ WARNING: Pas bien !
     <script src="chemin/vers/votre/autreFichier.js"></script>
 </body>
 ----
+[%step]
 IMPORTANT: Mieux...
 
 [%auto-animate]
@@ -89,6 +91,7 @@ IMPORTANT: Mieux...
     <script type="module" src="app.js"></script>
 </body>
 ----
+[%step]
 TIP: Très bien !
 
 

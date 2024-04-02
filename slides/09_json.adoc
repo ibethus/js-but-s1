@@ -1,0 +1,41 @@
+== Le JSON
+
+=== Structure
+[source, json]
+----
+{
+    "person": {
+        "name": "John Doe",
+        "age": 30,
+        "city": "New York",
+        "isStudent": false,
+        "courses": ["Math", "History"]
+    }
+}
+----
+
+=== Convertir en JSON
+[source, javascript]
+----
+const person = {
+  name: 'John',
+  age: 30,
+  city: 'New York'
+};
+
+const jsonString = JSON.stringify(person);
+console.log(jsonString); <1>
+----
+[%step]
+<1> `Output : {name: 'John', age: 30, city: 'New York'}`
+
+=== Convertir en objet
+[source, javascript]
+----
+const jsonString = '{"name":"John","age":30,"city":"New York"}';
+
+const person = JSON.parse(jsonString);
+console.log(person);<1>
+----
+[%step]
+<1> `Output : {"name":"John","age":30,"city":"New York"}`
