@@ -1,0 +1,138 @@
+== Aller plus loin
+
+[%auto-animate]
+=== Héritage
+Soit une classe :
+[source,javascript]
+----
+ class Animal {
+    constructor(name) {
+      this.name = name;    
+    }
+    noise () {
+      console.log(`I am an animal of type : `)
+    }    
+  }
+----
+
+[%auto-animate]
+=== Héritage
+[source, javascript]
+----
+class Bird extends Animal { <1>
+  constructor(name) {
+    super(name); <2>
+    this.type = 'Bird';   
+  }
+  noise = () => {
+    super.noise(); <3>
+    console.log(`${this.type}, I tweet `);<4>
+  }
+}
+----
+[%step]
+<1> Mot-clef `extends`
+<2> `super()` appelle le constructeur de la classe mère
+<3> `super.uneFonction()` appelle une fonction de la classe mère
+<4> `Output : I am an animal of type Bird, I tweet`
+
+[%auto-animate]
+=== Programmation fonctionnelle
+.map()
+[source, javascript]
+----
+const numbers = [1, 2, 3, 4, 5];
+
+const doubledNumbers = numbers.map((num) => num * 2);
+
+console.log(doubledNumbers);<1>
+----
+<1> `Output : [2, 4, 6, 8, 10]`
+
+[%auto-animate]
+=== Programmation fonctionnelle
+.filter()
+[source, javascript]
+----
+const numbers = [1, 2, 3, 4, 5];
+
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
+
+console.log(evenNumbers); <1>
+----
+<1> `Output : [2, 4]`
+
+[%auto-animate]
+=== Programmation fonctionnelle
+.find()
+[source, javascript]
+----
+const fruits = ["apple", "banana", "orange", "kiwi"];
+
+const result = fruits.find((fruit) => fruit.includes("r"));
+
+console.log(result);<1>
+----
+<1> `Output : orange`
+
+[%auto-animate]
+=== Programmation fonctionnelle
+.reduce()
+[source, javascript]
+----
+/* Utilisation de reduce pour calculer la somme des nombres */
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); <1>
+
+/* Utilisation de reduce pour concaténer les éléments du tableau en une seule chaîne */
+const words = ["Hello", " ", "World", "!"];
+const concatenatedString = words.reduce((accumulator, currentValue) => accumulator + currentValue, "");
+console.log(concatenatedString); <2>
+----
+<1> `Output : 15`
+<2> `Output : Hello World!`
+
+[%auto-animate]
+=== Les promesses
+[source, javascript]
+----
+const methode = () => {
+  return new Promise((resolve, reject) => {    
+    if (Math.random() > .5) {
+        resolve("Tout va bien dans la méthode asynchrone 1");
+    } else {
+        reject(Error('Problème méthode 1'));
+    }
+  })
+}
+
+methode()
+.then(reponse => console.log(reponse))<1>
+.catch(alert => console.log(alert)) <2>
+.then(() => console.log ("Tout est terminé"));<3>
+----
+[%step]
+<1> Quand la promesse est tenue, c'est ce code qui sera exécuté
+<2> Sinon, on rentre dans ce bloc de code
+<3> Ce code est toujours exécuté
+
+=== Documentation
+.Exemple de JSDoc
+[source, javascript]
+----
+/**
+ * Détermine la couleur de l'adversaire en fonction de la couleur du joueur.
+ *
+ * @param {string} playerColor - La couleur du joueur (B ou W).
+ * @returns {string} La couleur de l'adversaire (B ou W).
+ * @example
+ * const playerColor = Crush.BLACK;
+ * const opponentColor = opponent(playerColor);
+ * console.log(opponentColor); // Renvoie Crush.WHITE
+ */
+const opponent = (playerColor) => {
+  let opponentColor = playerColor === Crush.BLACK ? Crush.WHITE : Crush.BLACK;
+  return opponentColor;
+}
+----

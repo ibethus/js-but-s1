@@ -75,10 +75,6 @@ Comment accéder aux noeuds ?
 --
 
 [%auto-animate]
-=== Les types de noeuds
-WARNING: Les autres types de noeuds sont *dépréciés*.
-
-[%auto-animate]
 === Manipulation des noeuds
 [source, html, highlight=2]
 ----

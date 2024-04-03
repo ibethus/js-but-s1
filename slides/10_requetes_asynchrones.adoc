@@ -56,10 +56,11 @@ const type = 'legume';
 const couleur = 'vert';
 
 let apiEndpoint = 
-    `https://${apiURL}/${endPoint}?type=${type}&couleur=${couleur}` <1>
+    `https://${apiURL}/${endPoint}?type=${type}&couleur=${couleur}` 
+console.log(apiEndpoint)<1>
 ----
 [%step]
-<1> L'url sera : `https://fruits&legumes.com/findMe?type=legume&couleur=vert`
+<1> `Output : https://fruits&legumes.com/findMe?type=legume&couleur=vert`
 
 [%auto-animate]
 === Paramètres de requête

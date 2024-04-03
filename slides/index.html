@@ -685,7 +685,7 @@ myObjects.privateMethod();<i class="conum" data-value="2"></i><b>(2)</b></code><
     &lt;script src="src.js"&gt;&lt;/script&gt;
 &lt;/body&gt;</code></pre></div></div>
 <div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>document.body.children[0]</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>document.body.children[1]</code></td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td><code>document.body.children[1].children[0]</code></td></tr></table></div></div></section><section id="_les_types_de_noeuds" class="columns" data-auto-animate><h2>Les types de noeuds</h2><div class="slide-content"><div class="openblock column"><div class="content"><div class="ulist"><ul><li><p><strong>ELEMENT_NODE</strong> : <code>&lt;p&gt;</code> ou <code>&lt;div&gt;</code> par exemple</p></li><li><p><strong>TEXT_NODE</strong> : Le texte actuel d&#8217;un élément</p></li><li><p><strong>PROCESSING_INSTRUCTION_NODE</strong></p></li><li><p><strong>COMMENT_NODE</strong> : Un noeud <code>Comment</code></p></li></ul></div></div></div>
-<div class="openblock column"><div class="content"><div class="ulist"><ul><li><p><strong>DOCUMENT_NODE</strong> : Un noeud <code>Document</code></p></li><li><p><strong>DOCUMENT_TYPE_NODE</strong> : Un noeud <code>DocumentType</code> (&lt;!DOCTYPE html&gt; par exemple)</p></li><li><p><strong>DOCUMENT_FRAGMENT_NODE</strong> : Un noeud <code>DocumentFragment</code></p></li></ul></div></div></div></div></section><section id="_les_types_de_noeuds_2" data-auto-animate><h2>Les types de noeuds</h2><div class="slide-content"><div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa fa-warning" title="Warning"></i></td><td class="content">Les autres types de noeuds sont <strong>dépréciés</strong>.</td></tr></table></div></div></section><section id="_manipulation_des_noeuds" data-auto-animate><h2>Manipulation des noeuds</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="2" data-lang="html">&lt;body&gt;
+<div class="openblock column"><div class="content"><div class="ulist"><ul><li><p><strong>DOCUMENT_NODE</strong> : Un noeud <code>Document</code></p></li><li><p><strong>DOCUMENT_TYPE_NODE</strong> : Un noeud <code>DocumentType</code> (&lt;!DOCTYPE html&gt; par exemple)</p></li><li><p><strong>DOCUMENT_FRAGMENT_NODE</strong> : Un noeud <code>DocumentFragment</code></p></li></ul></div></div></div></div></section><section id="_manipulation_des_noeuds" data-auto-animate><h2>Manipulation des noeuds</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="2" data-lang="html">&lt;body&gt;
   &lt;h1 id ="titre"&gt;Titre&lt;/h1&gt;
   &lt;p id = "paragraphe1"&gt; Bonjour &lt;/p&gt;
   &lt;div id="images"&gt;
@@ -963,8 +963,9 @@ const type = 'legume';
 const couleur = 'vert';
 
 let apiEndpoint =
-    `https://${apiURL}/${endPoint}?type=${type}&amp;couleur=${couleur}` <i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
-<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>L&#8217;url sera : <code><a href="https://fruits&amp;legumes.com/findMe?type=legume&amp;couleur=vert" class="bare">https://fruits&amp;legumes.com/findMe?type=legume&amp;couleur=vert</a></code></td></tr></table></div></div></section><section id="_paramètres_de_requête_2" data-auto-animate><h2>Paramètres de requête</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p>1er paramètre : <code>?nomDuParametre=</code></p></li><li class="fragment"><p>Paramètres suivants : <code>&amp;nomDuParametre=</code></p></li></ul></div></div></section><section id="_types_de_requête"><h2>Types de requête</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p><code>GET</code> : Récupérer des informations sur une ressource existante</p></li><li class="fragment"><p><code>POST</code> : Créer une nouvelle ressource sur le serveur distant</p></li><li class="fragment"><p><code>PATCH</code> : Mettre à jour une ressource existante</p></li></ul></div></div></section><section id="_fonction_asynchrone"><h2>Fonction asynchrone</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const maFonctionAsynchrone = async () =&gt; { <i class="conum" data-value="1"></i><b>(1)</b>
+    `https://${apiURL}/${endPoint}?type=${type}&amp;couleur=${couleur}`
+console.log(apiEndpoint)<i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : <a href="https://fruits&amp;legumes.com/findMe?type=legume&amp;couleur=vert" class="bare">https://fruits&amp;legumes.com/findMe?type=legume&amp;couleur=vert</a></code></td></tr></table></div></div></section><section id="_paramètres_de_requête_2" data-auto-animate><h2>Paramètres de requête</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p>1er paramètre : <code>?nomDuParametre=</code></p></li><li class="fragment"><p>Paramètres suivants : <code>&amp;nomDuParametre=</code></p></li></ul></div></div></section><section id="_types_de_requête"><h2>Types de requête</h2><div class="slide-content"><div class="ulist"><ul><li class="fragment"><p><code>GET</code> : Récupérer des informations sur une ressource existante</p></li><li class="fragment"><p><code>POST</code> : Créer une nouvelle ressource sur le serveur distant</p></li><li class="fragment"><p><code>PATCH</code> : Mettre à jour une ressource existante</p></li></ul></div></div></section><section id="_fonction_asynchrone"><h2>Fonction asynchrone</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const maFonctionAsynchrone = async () =&gt; { <i class="conum" data-value="1"></i><b>(1)</b>
   try {
       let response = await fetch(url, options);<i class="conum" data-value="2"></i><b>(2)</b>
       let result = await response.json();<i class="conum" data-value="3"></i><b>(3)</b>
@@ -973,7 +974,77 @@ let apiEndpoint =
       console.error('Error:', error);
   }
 }</code></pre></div></div>
-<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Utilisation du mot-clef <code>async</code> dans la déclaration de la méthode</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Attend que la réponse arrive avant d&#8217;exécuter la ligne du dessous</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Lit le corps de la réponse au format JSON</td></tr></table></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Utilisation du mot-clef <code>async</code> dans la déclaration de la fonction</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Attend que la réponse arrive avant d&#8217;exécuter la ligne du dessous</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Lit le corps de la réponse au format JSON
+== Aller plus loin</td></tr></table></div></div></section><section id="_héritage" data-auto-animate><h2>Héritage</h2><div class="slide-content"><div class="paragraph"><p>Soit une classe :</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript"> class Animal {
+    constructor(name) {
+      this.name = name;
+    }
+    noise () {
+      console.log(`I am an animal of type : `)
+    }
+  }</code></pre></div></div></div></section><section id="_héritage_2" data-auto-animate><h2>Héritage</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">class Bird extends Animal { <i class="conum" data-value="1"></i><b>(1)</b>
+  constructor(name) {
+    super(name); <i class="conum" data-value="2"></i><b>(2)</b>
+    this.type = 'Bird';
+  }
+  noise = () =&gt; {
+    super.noise(); <i class="conum" data-value="3"></i><b>(3)</b>
+    console.log(`${this.type}, I tweet `);<i class="conum" data-value="4"></i><b>(4)</b>
+  }
+}</code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Mot-clef <code>extends</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>super()</code> appelle le constructeur de la classe mère</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td><code>super.uneFonction()</code> appelle une fonction de la classe mère</td></tr><tr><td><i class="conum" data-value="4"></i><b>4</b></td><td><code>Output : I am an animal of type Bird, I tweet</code></td></tr></table></div></div></section><section id="_programmation_fonctionnelle" data-auto-animate><h2>Programmation fonctionnelle</h2><div class="slide-content"><div class="listingblock"><div class="title">map()</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const numbers = [1, 2, 3, 4, 5];
+
+const doubledNumbers = numbers.map((num) =&gt; num * 2);
+
+console.log(doubledNumbers);<i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : [2, 4, 6, 8, 10]</code></td></tr></table></div></div></section><section id="_programmation_fonctionnelle_2" data-auto-animate><h2>Programmation fonctionnelle</h2><div class="slide-content"><div class="listingblock"><div class="title">filter()</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const numbers = [1, 2, 3, 4, 5];
+
+const evenNumbers = numbers.filter((num) =&gt; num % 2 === 0);
+
+console.log(evenNumbers); <i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : [2, 4]</code></td></tr></table></div></div></section><section id="_programmation_fonctionnelle_3" data-auto-animate><h2>Programmation fonctionnelle</h2><div class="slide-content"><div class="listingblock"><div class="title">find()</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const fruits = ["apple", "banana", "orange", "kiwi"];
+
+const result = fruits.find((fruit) =&gt; fruit.includes("r"));
+
+console.log(result);<i class="conum" data-value="1"></i><b>(1)</b></code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : orange</code></td></tr></table></div></div></section><section id="_programmation_fonctionnelle_4" data-auto-animate><h2>Programmation fonctionnelle</h2><div class="slide-content"><div class="listingblock"><div class="title">reduce()</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">/* Utilisation de reduce pour calculer la somme des nombres */
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accumulator, currentValue) =&gt; accumulator + currentValue, 0);
+console.log(sum); <i class="conum" data-value="1"></i><b>(1)</b>
+
+/* Utilisation de reduce pour concaténer les éléments du tableau en une seule chaîne */
+const words = ["Hello", " ", "World", "!"];
+const concatenatedString = words.reduce((accumulator, currentValue) =&gt; accumulator + currentValue, "");
+console.log(concatenatedString); <i class="conum" data-value="2"></i><b>(2)</b></code></pre></div></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : 15</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>Output : Hello World!</code></td></tr></table></div></div></section><section id="_les_promesses" data-auto-animate><h2>Les promesses</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const methode = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    if (Math.random() &gt; .5) {
+        resolve("Tout va bien dans la méthode asynchrone 1");
+    } else {
+        reject(Error('Problème méthode 1'));
+    }
+  })
+}
+
+methode()
+.then(reponse =&gt; console.log(reponse))<i class="conum" data-value="1"></i><b>(1)</b>
+.catch(alert =&gt; console.log(alert)) <i class="conum" data-value="2"></i><b>(2)</b>
+.then(() =&gt; console.log ("Tout est terminé"));<i class="conum" data-value="3"></i><b>(3)</b></code></pre></div></div>
+<div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Quand la promesse est tenue, c&#8217;est ce code qui sera exécuté</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Sinon, on rentre dans ce bloc de code</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Ce code est toujours exécuté</td></tr></table></div></div></section><section id="_documentation"><h2>Documentation</h2><div class="slide-content"><div class="listingblock"><div class="title">Exemple de JSDoc</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">/**
+ * Détermine la couleur de l'adversaire en fonction de la couleur du joueur.
+ *
+ * @param {string} playerColor - La couleur du joueur (B ou W).
+ * @returns {string} La couleur de l'adversaire (B ou W).
+ * @example
+ * const playerColor = Crush.BLACK;
+ * const opponentColor = opponent(playerColor);
+ * console.log(opponentColor); // Renvoie Crush.WHITE
+ */
+const opponent = (playerColor) =&gt; {
+  let opponentColor = playerColor === Crush.BLACK ? Crush.WHITE : Crush.BLACK;
+  return opponentColor;
+}</code></pre></div></div></div></section></section></div></div><script src="reveal.js/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;
