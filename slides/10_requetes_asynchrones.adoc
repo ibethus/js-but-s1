@@ -75,6 +75,7 @@ console.log(apiEndpoint)<1>
 * `PATCH` : Mettre à jour une ressource existante
 
 === Fonction asynchrone
+--
 [source, javascript]
 ----
 const maFonctionAsynchrone = async () => { <1>
@@ -91,3 +92,4 @@ const maFonctionAsynchrone = async () => { <1>
 <1> Utilisation du mot-clef `async` dans la déclaration de la fonction
 <2> Attend que la réponse arrive avant d'exécuter la ligne du dessous
 <3> Lit le corps de la réponse au format JSON
+--
