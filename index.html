@@ -873,15 +873,15 @@ element.addEventListener('click', something.maMethodeClassique);</code></pre></d
 const customEvent =
   new CustomEvent('most-custom-event', {});</code></pre></div></div></div></section><section id="_evénements_synthétiques_3" data-auto-animate><h2>Evénements <em>synthétiques</em></h2><div class="slide-content"><div class="listingblock"><div class="title">Créer un <code>event</code> personnalisé</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">let event = new CustomEvent('my-custom-event', {
 	detail: "Les livres sont des amis froids et sûrs."
-});</code></pre></div></div></div></section><section id="_evénements_synthétiques_4" data-auto-animate><h2>Evénements <em>synthétiques</em></h2><div class="slide-content"><div class="listingblock"><div class="title">Emettre un événement</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="0,1,2,3,4,5|6" data-lang="javascript">const user = {
+});</code></pre></div></div></div></section><section id="_événements_synthétiques" data-auto-animate><h2>événements <em>synthétiques</em></h2><div class="slide-content"><div class="listingblock"><div class="title">Emettre un événement</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-line-numbers="0,1,2,3,4,5|6" data-lang="javascript">const user = {
   prenom: "Jean",
   nom: "Valjean"
 }
 let event = new CustomEvent('my-custom-event', { detail: user });
-document.dispatchEvent(event);</code></pre></div></div></div></section><section id="_evénements_synthétiques_5" data-auto-animate><h2>Evénements <em>synthétiques</em></h2><div class="slide-content"><div class="listingblock"><div class="title">Réceptionner un événement</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">document.addEventListener('my-custom-event', (event) =&gt; {
+document.dispatchEvent(event);</code></pre></div></div></div></section><section id="_evénements_synthétiques_4" data-auto-animate><h2>Evénements <em>synthétiques</em></h2><div class="slide-content"><div class="listingblock"><div class="title">Réceptionner un événement</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">document.addEventListener('my-custom-event', (event) =&gt; {
     console.log(event.detail); <i class="conum" data-value="1"></i><b>(1)</b>
 });</code></pre></div></div>
-<div class="openblock fragment"><div class="content"><div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : {prenom: 'Jean', nom: 'Valjean'}</code></td></tr></table></div></div></div></div></section></section>
+<div class="openblock fragment"><div class="content"><div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : {prenom: 'Jean', nom: 'Valjean'}</code></td></tr></table></div></div></div></div></section><section id="_aller_plus_loin"><h2>Aller plus loin</h2><div class="slide-content"><div class="openblock"><div class="content"><div class="paragraph"><p><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Event_loop">Event loop</a></p></div></div></div></div></section></section>
 <section><section id="_structure_du_code"><h2>Structure du code</h2></section><section id="_importexport_global" data-auto-animate><h2>Import/Export global</h2><div class="slide-content"><div class="listingblock"><div class="title">Utilisateur.js</div><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">export default class Utilisateur {
     #nom;
     #prenom;
@@ -988,7 +988,7 @@ console.log(apiEndpoint)<i class="conum" data-value="1"></i><b>(1)</b></code></p
   }
 }</code></pre></div></div>
 <div class="colist arabic fragment"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Utilisation du mot-clef <code>async</code> dans la déclaration de la fonction</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Attend que la réponse arrive avant d&#8217;exécuter la ligne du dessous</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Lit le corps de la réponse au format JSON</td></tr></table></div></div></div></div></section></section>
-<section><section id="_aller_plus_loin"><h2>Aller plus loin</h2></section><section id="_héritage" data-auto-animate><h2>Héritage</h2><div class="slide-content"><div class="paragraph"><p>Soit une classe :</p></div>
+<section><section id="_aller_plus_loin_2"><h2>Aller plus loin</h2></section><section id="_héritage" data-auto-animate><h2>Héritage</h2><div class="slide-content"><div class="paragraph"><p>Soit une classe :</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript"> class Animal {
     constructor(name) {
       this.name = name;
