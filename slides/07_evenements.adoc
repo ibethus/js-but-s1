@@ -130,3 +130,58 @@ element.addEventListener('click', something.maMethodeClassique);
 <1> *KO* : Impossible car c'est une fonction nommée, qui a son propre contexte
 <2> *OK* : `this` représente bien le paragraphe cliqué
 --
+
+[%auto-animate]
+=== Evénements _synthétiques_
+TIP: Evénement synthétique = événement qui n'est pas généré par le navigateur (mais par le code)
+
+[%auto-animate]
+=== Evénements _synthétiques_
+
+.Créer un `event` personnalisé
+[source, javascript, highlight=1|2;3]
+----
+const event = new Event('less-custom-event');
+const customEvent = 
+  new CustomEvent('most-custom-event', {});
+----
+
+[%auto-animate]
+=== Evénements _synthétiques_
+
+.Créer un `event` personnalisé
+[source, javascript]
+----
+let event = new CustomEvent('my-custom-event', {
+	detail: "Les livres sont des amis froids et sûrs."
+});
+----
+
+[%auto-animate]
+=== Evénements _synthétiques_
+
+.Emettre un événement
+[source, javascript, highlight=..5|6]
+----
+const user = {
+  prenom: "Jean",
+  nom: "Valjean"
+}
+let event = new CustomEvent('my-custom-event', { detail: user });
+document.dispatchEvent(event);
+----
+
+[%auto-animate]
+=== Evénements _synthétiques_
+
+.Réceptionner un événement
+[source, javascript]
+----
+document.addEventListener('my-custom-event', (event) => {
+    console.log(event.detail); <1>
+});
+----
+[%step]
+--
+<1> `Output : {prenom: 'Jean', nom: 'Valjean'}`
+--
