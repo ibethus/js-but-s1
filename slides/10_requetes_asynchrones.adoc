@@ -15,7 +15,8 @@ fetch(maRequete)<1>
 .then(blob => {
     let URLobjet = URL.createObjectURL(blob); <4>
     monImage.src = URLobjet;
-});
+})
+.catch(error => console.error(error));
 ----
 [%step]
 <1> La requête part vers le serveur distant, lorsqu'elle revient, alors `then` est executé
@@ -39,7 +40,7 @@ fetch(myRequest)
       myList.appendChild(listItem);    
     }
   })
-  .catch(console.error);
+  .catch(error => console.error(error));
 ----
 [%step]
 <1> On peut récupérer de cette façon le json associé à la requête 
