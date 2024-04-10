@@ -1,4 +1,4 @@
-== Evénements
+== événements
 
 [%auto-animate]
 === EventListener
@@ -132,11 +132,11 @@ element.addEventListener('click', something.maMethodeClassique);
 --
 
 [%auto-animate]
-=== Evénements _synthétiques_
+=== événements _synthétiques_
 TIP: Evénement synthétique = événement qui n'est pas généré par le navigateur (mais par le code)
 
 [%auto-animate]
-=== Evénements _synthétiques_
+=== événements _synthétiques_
 
 .Créer un `event` personnalisé
 [source, javascript, highlight=1|2;3]
@@ -147,7 +147,7 @@ const customEvent =
 ----
 
 [%auto-animate]
-=== Evénements _synthétiques_
+=== événements _synthétiques_
 
 .Créer un `event` personnalisé
 [source, javascript]
@@ -158,7 +158,7 @@ let event = new CustomEvent('my-custom-event', {
 ----
 
 [%auto-animate]
-=== Evénements _synthétiques_
+=== événements _synthétiques_
 
 .Emettre un événement
 [source, javascript, highlight=..5|6]
@@ -172,7 +172,7 @@ document.dispatchEvent(event);
 ----
 
 [%auto-animate]
-=== Evénements _synthétiques_
+=== événements _synthétiques_
 
 .Réceptionner un événement
 [source, javascript]
@@ -184,4 +184,9 @@ document.addEventListener('my-custom-event', (event) => {
 [%step]
 --
 <1> `Output : {prenom: 'Jean', nom: 'Valjean'}`
+--
+
+=== Aller plus loin
+--
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Event_loop[Event loop]
 --
