@@ -1032,7 +1032,7 @@ const concatenatedString = words.reduce((accumulator, currentValue) =&gt; accumu
 console.log(concatenatedString); <i class="conum" data-value="2"></i><b>(2)</b></code></pre></div></div>
 <div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>Output : 15</code></td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>Output : Hello World!</code></td></tr></table></div></div></section><section id="_les_promesses" data-auto-animate><h2>Les promesses</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-javascript hljs" data-noescape="true" data-lang="javascript">const methode = () =&gt; {
   return new Promise((resolve, reject) =&gt; {
-    if (Math.random() &gt; .5) {
+    if (Math.random() &gt; 0.5) {
         resolve("Tout va bien dans la méthode asynchrone 1");
     } else {
         reject(Error('Problème méthode 1'));
