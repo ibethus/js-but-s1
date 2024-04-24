@@ -99,7 +99,7 @@ console.log(concatenatedString); <2>
 ----
 const methode = () => {
   return new Promise((resolve, reject) => {    
-    if (Math.random() > .5) {
+    if (Math.random() > 0.5) {
         resolve("Tout va bien dans la méthode asynchrone 1");
     } else {
         reject(Error('Problème méthode 1'));
