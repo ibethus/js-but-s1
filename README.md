@@ -6,8 +6,6 @@
 ## Description
 Ce dépôt présente les notions de base du JavaScript vanilla moderne, tirées du cours suivant : http://js-but1.codenestedu.fr/
 
-Les slides sont disponibles sur https://hot-coffee.dev/js-but-1
-
 ## Générer les slides en local
 
 1. Télécharger `reveal.js`, le dézipper dans le répertoire `slides` et nommer le répertoire `reveal.js` : https://github.com/hakimel/reveal.js/archive/master.zip
